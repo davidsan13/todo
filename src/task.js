@@ -1,19 +1,19 @@
 
 
-const Task = (title, description, date, priority) => {
+const Task = (title, description, date, priority, project) => {
   let done = false;
-  const tasks = [];
 
-  // const getTitle = () => title;
-  // const getDate = () => date;
-  // const isDone = () => {
-  //   done = true;
-  // }
-  const addTask = () => tasks.push(Task);
-  // update
-  // delete
-  // return { getTitle, isDone, done, addTask };
-  return { title, date, addTask, tasks };
+  const getTitle = () => title;
+  const getDate = () => date;
+  const getPriority = () => priority;
+  const getProject = () => project;
+  const isDone = () => {
+    done = true;
+  };
+
+  // const update = () => 
+
+  return { getTitle, getDate, isDone };
 }
 
 // function Task(title, date) {
