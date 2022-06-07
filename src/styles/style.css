@@ -1,0 +1,187 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+hgroup,
+menu,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+:root {
+  --color-primary: rgb(255, 255, 255);
+  --color-secondary: #168FFF;
+  --color-white: #FFFFFF;
+  --color-black: rgb(41, 41, 41);
+  --color-grey0: #f8f8f8;
+  --color-grey-1: #dbe1e8;
+  --color-grey-2: #b2becd;
+  --color-grey-3: #6c7983;
+  --color-grey-4: #454e56;
+  --color-grey-5: #2a2e35;
+  --color-grey-6: #12181b;
+  --br-sm-2: 14px;
+  --box-shadow-1: 0 3px 15px rgba(63, 62, 62, 0.849);
+}
+
+html {
+  font-size: 62.5%;
+  font-family: sans-serif;
+}
+
+.main {
+  position: relative;
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-grid-columns: minmax(400px, 0.5fr) minmax(800px, 900px);
+      grid-template-columns: minmax(400px, 0.5fr) minmax(800px, 900px);
+}
+
+.main .formCon {
+  -webkit-box-shadow: var(--box-shadow-1);
+          box-shadow: var(--box-shadow-1);
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  left: 30%;
+  bottom: 60%;
+  background-color: white;
+  width: 75rem;
+  height: 10rem;
+}
+
+.main .formCon form {
+  -webkit-box-shadow: var(--box-shadow-1);
+          box-shadow: var(--box-shadow-1);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
+  font-size: 1.5rem;
+  width: 75%;
+  gap: 1rem;
+}
+
+.main .formCon form label {
+  display: none;
+}
+
+.main .formCon form input {
+  text-align: center;
+}
+
+.main .formCon form #title {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-column: 1 / 6;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1 / 2;
+  width: 100%;
+  -webkit-box-flex: 4;
+      -ms-flex-positive: 4;
+          flex-grow: 4;
+}
+
+.main .formCon form #date {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2 / 4;
+}
+
+.main .formCon form #desc {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 /2;
+}
+
+.main .formCon form #pri {
+  -webkit-box-flex: 5;
+      -ms-flex-positive: 5;
+          flex-grow: 5;
+}
+
+.main .rtCon {
+  width: 65rem;
+  height: 75vh;
+  position: relative;
+  -ms-grid-column-align: start;
+      justify-self: start;
+  -webkit-box-shadow: var(--box-shadow-1);
+          box-shadow: var(--box-shadow-1);
+}
+
+.main .rtCon .addBtn {
+  position: absolute;
+  font-size: 6rem;
+  bottom: 0;
+  right: 0;
+}
+
+.main .ltCon {
+  width: 25rem;
+  height: 75vh;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -webkit-box-shadow: var(--box-shadow-1);
+          box-shadow: var(--box-shadow-1);
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,4 +1,5 @@
 function form() {
+  const formCon = document.createElement('div');
   const taskForm = document.createElement('form');
   const titleLl = document.createElement('label');
   const titleInp = document.createElement('input');
@@ -13,21 +14,24 @@ function form() {
   const opt3 = document.createElement('option');
   const proLl = document.createElement('label');
   const proInp = document.createElement('input');
+  const cancel = document.createElement('input');
+  const addBtn = document.createElement('input');
 
+  formCon.classList.add('formCon');
   titleLl.htmlFor = 'title';
-  titleLl.textContent = 'Title';
+  titleInp.setAttribute('placeholder', 'Add a task');
   titleInp.setAttribute('id', 'title');
   titleInp.setAttribute('type', 'text');
   titleInp.setAttribute('name', 'title');
 
   desLl.htmlFor = 'desc';
-  desLl.textContent = 'Description';
+  desInp.setAttribute('placeholder', 'Description');
   desInp.setAttribute('id', 'desc');
   desInp.setAttribute('type', 'text');
   desInp.setAttribute('name', 'desc');
 
   dateLl.htmlFor = 'date';
-  dateLl.textContent = 'Date';
+  dateInp.setAttribute('placeholder', 'Date');
   dateInp.setAttribute('id', 'date');
   dateInp.setAttribute('type', 'date');
   dateInp.setAttribute('name', 'date');
@@ -44,15 +48,17 @@ function form() {
   opt3.textContent = 'Low';
 
   proLl.htmlFor = 'pro';
-  proLl.textContent = 'Project';
+  proInp.setAttribute('placeholder', 'Project');
   proInp.setAttribute('id', 'pro');
   proInp.setAttribute('type', 'text');
   proInp.setAttribute('name', 'pro');
 
+  cancel.setAttribute('value', 'cancel');
+  addBtn.setAttribute('value', 'add');
+
   priSel.appendChild(opt1);
   priSel.appendChild(opt2);
   priSel.appendChild(opt3);
-
   taskForm.appendChild(titleLl);
   taskForm.appendChild(titleInp);
   taskForm.appendChild(desLl);
@@ -64,7 +70,8 @@ function form() {
   taskForm.appendChild(proLl);
   taskForm.appendChild(proInp);
 
-  return taskForm;
+  formCon.appendChild(taskForm);
+  return formCon;
 }
 
 export default form;

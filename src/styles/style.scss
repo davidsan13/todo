@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+hgroup,
+menu,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+:root {
+  --color-primary: rgb(255, 255, 255);
+  --color-secondary: #168FFF;
+  --color-white: #FFFFFF;
+  --color-black: rgb(41, 41, 41);
+  --color-grey0: #f8f8f8;
+  --color-grey-1: #dbe1e8;
+  --color-grey-2: #b2becd;
+  --color-grey-3: #6c7983;
+  --color-grey-4: #454e56;
+  --color-grey-5: #2a2e35;
+  --color-grey-6: #12181b;
+  --br-sm-2: 14px;
+  --box-shadow-1: 0 3px 15px rgba(63, 62, 62, 0.849);
+}
+
+html {
+  font-size: 62.5%;
+  font-family: sans-serif;
+}
+
+.main {
+  // margin: 0;
+  // width: 100vh;
+  position: relative;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-content: center;;
+  grid-template-columns: minmax(400px,.5fr) minmax(800px, 900px);
+  .formCon {
+    
+    box-shadow: var(--box-shadow-1);
+    z-index: 1;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 30%;
+    bottom: 60%;
+    background-color: white;
+    width: 75rem;
+    height: 10rem;
+    form{
+      box-shadow: var(--box-shadow-1);
+      label {
+        display:none;
+      }
+      input {
+        text-align: center;
+      }
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      font-size: 1.5rem;
+      width: 75%;
+      gap: 1rem;
+      #title {
+        grid-column: 1 / 6;
+        grid-row: 1 / 2;
+        width: 100%;
+        flex-grow: 4;
+      }
+      #date {
+        grid-column: 2 / 4;
+      }
+      #desc {
+        grid-column: 1 /2
+      }
+      #pri {
+        
+        flex-grow: 5;
+      }
+    }
+    }
+    
+  .rtCon {
+    width: 65rem;
+    height: 75vh;
+    position: relative;
+    justify-self: start;
+    box-shadow: var(--box-shadow-1);
+    // justify-self: start;
+    .addBtn {
+      position: absolute;
+      font-size: 6rem;
+      bottom: 0;
+      right: 0;
+      // left: 2;
+    }
+  }
+  
+  .ltCon {
+    width: 25rem;
+    height: 75vh;
+    justify-self: center;
+    box-shadow: var(--box-shadow-1);
+    
+  }
+}
+
+// Form
+
