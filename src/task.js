@@ -1,5 +1,3 @@
-
-
 const Task = (title, description, date, priority, project) => {
   let done = false;
 
@@ -11,15 +9,13 @@ const Task = (title, description, date, priority, project) => {
     done = true;
   };
 
-  // const update = () => 
+  // const update = () =>
 
   return { getTitle, getDate, isDone };
 }
 
-// function Task(title, date) {
-//   return { title, date };
-// }
 
-export default Task;
+const taskArray = [];
 
-// task1 = Task('task1', '10')
+export { Task, taskArray };
+

@@ -17,7 +17,6 @@ function renderLayout() {
   main.appendChild(ltCon);
   main.appendChild(rtCon);
 
-  
   return main;
 }
 
@@ -25,7 +24,5 @@ const listener = () => {
   const addBtn = document.querySelector('.addBtn');
   addBtn.addEventListener('click', () => document.body.appendChild(form()));
 };
-
-
 
 export { renderLayout, listener };

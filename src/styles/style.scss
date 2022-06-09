@@ -78,7 +78,6 @@ html {
   justify-content: center;;
   grid-template-columns: minmax(400px,.5fr) minmax(800px, 900px);
   .formCon {
-    
     box-shadow: var(--box-shadow-1);
     z-index: 1;
     display: flex;
@@ -92,19 +91,19 @@ html {
     width: 75rem;
     height: 10rem;
     form{
-      box-shadow: var(--box-shadow-1);
-      label {
-        display:none;
-      }
-      input {
-        text-align: center;
-      }
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       grid-template-rows: repeat(2, 1fr);
       font-size: 1.5rem;
       width: 75%;
       gap: 1rem;
+      label {
+        display:none;
+      }
+      input {
+        border: 1px solid rgb(196, 195, 195);
+        text-align: center;
+      }
       #title {
         grid-column: 1 / 6;
         grid-row: 1 / 2;
@@ -115,14 +114,16 @@ html {
         grid-column: 2 / 4;
       }
       #desc {
-        grid-column: 1 /2
+        grid-column: 1 / 2
       }
       #pri {
-        
         flex-grow: 5;
       }
+      #addBtn {
+        grid-column: 2 / 4;
+      }
     }
-    }
+  }
     
   .rtCon {
     width: 65rem;

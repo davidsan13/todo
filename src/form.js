@@ -14,7 +14,7 @@ function form() {
   const opt3 = document.createElement('option');
   const proLl = document.createElement('label');
   const proInp = document.createElement('input');
-  const cancel = document.createElement('input');
+  const cancel = document.createElement('button');
   const addBtn = document.createElement('input');
 
   formCon.classList.add('formCon');
@@ -53,8 +53,14 @@ function form() {
   proInp.setAttribute('type', 'text');
   proInp.setAttribute('name', 'pro');
 
+  cancel.textContent = 'Cancel';
+  cancel.setAttribute('id', 'cancel');
   cancel.setAttribute('value', 'cancel');
+  cancel.setAttribute('type', 'button');
+  addBtn.textContent = 'Add Task';
+  addBtn.setAttribute('id', 'addBtn');
   addBtn.setAttribute('value', 'add');
+  addBtn.setAttribute('type', 'submit');
 
   priSel.appendChild(opt1);
   priSel.appendChild(opt2);
@@ -69,6 +75,8 @@ function form() {
   taskForm.appendChild(priSel);
   taskForm.appendChild(proLl);
   taskForm.appendChild(proInp);
+  taskForm.appendChild(addBtn);
+  taskForm.appendChild(cancel);
 
   formCon.appendChild(taskForm);
   return formCon;

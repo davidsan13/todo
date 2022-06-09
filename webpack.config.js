@@ -3,8 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry:{
+  entry: {
     index: './src/index.js',
+    form: './src/form.js',
   },
   devtool: 'inline-source-map',
   devServer: {

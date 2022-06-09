@@ -107,8 +107,6 @@ html {
 }
 
 .main .formCon form {
-  -webkit-box-shadow: var(--box-shadow-1);
-          box-shadow: var(--box-shadow-1);
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[5];
@@ -125,6 +123,7 @@ html {
 }
 
 .main .formCon form input {
+  border: 1px solid #c4c3c3;
   text-align: center;
 }
 
@@ -150,13 +149,19 @@ html {
 .main .formCon form #desc {
   -ms-grid-column: 1;
   -ms-grid-column-span: 1;
-  grid-column: 1 /2;
+  grid-column: 1 / 2;
 }
 
 .main .formCon form #pri {
   -webkit-box-flex: 5;
       -ms-flex-positive: 5;
           flex-grow: 5;
+}
+
+.main .formCon form #addBtn {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2 / 4;
 }
 
 .main .rtCon {
