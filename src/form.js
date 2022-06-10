@@ -3,8 +3,7 @@ function form() {
   const taskForm = document.createElement('form');
   const titleLl = document.createElement('label');
   const titleInp = document.createElement('input');
-  const desLl = document.createElement('label');
-  const desInp = document.createElement('input');
+  
   const dateLl = document.createElement('label');
   const dateInp = document.createElement('input');
   const priLl = document.createElement('label');
@@ -23,12 +22,6 @@ function form() {
   titleInp.setAttribute('id', 'title');
   titleInp.setAttribute('type', 'text');
   titleInp.setAttribute('name', 'title');
-
-  desLl.htmlFor = 'desc';
-  desInp.setAttribute('placeholder', 'Description');
-  desInp.setAttribute('id', 'desc');
-  desInp.setAttribute('type', 'text');
-  desInp.setAttribute('name', 'desc');
 
   dateLl.htmlFor = 'date';
   dateInp.setAttribute('placeholder', 'Date');
@@ -67,8 +60,6 @@ function form() {
   priSel.appendChild(opt3);
   taskForm.appendChild(titleLl);
   taskForm.appendChild(titleInp);
-  taskForm.appendChild(desLl);
-  taskForm.appendChild(desInp);
   taskForm.appendChild(dateLl);
   taskForm.appendChild(dateInp);
   taskForm.appendChild(priLl);
@@ -82,4 +73,14 @@ function form() {
   return formCon;
 }
 
-export default form;
+function formActive() {
+  const formEl= document.querySelector('.formCon');
+  formEl.classList.add('active');
+}
+
+function formHidden() {
+  const formEl= document.querySelector('.formCon');
+  formEl.classList.remove('active');
+}
+
+export { form, formActive,formHidden };

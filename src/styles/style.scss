@@ -78,6 +78,9 @@ html {
   justify-content: center;;
   grid-template-columns: minmax(400px,.5fr) minmax(800px, 900px);
   .formCon {
+    display: none;
+  }
+  .formCon.active{
     box-shadow: var(--box-shadow-1);
     z-index: 1;
     display: flex;
@@ -152,3 +155,6 @@ html {
 
 // Form
 
+// form {
+//   display: none;
+// }
