@@ -1,7 +1,9 @@
 const Task = (title, date, priority, project) => {
   let done = false;
   
-
+  if (project == null) {
+    project = 'default';
+  }
   // const getTitle = () => title;
   // const getDate = () => date;
   // const getPriority = () => priority;

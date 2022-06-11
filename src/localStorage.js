@@ -1,6 +1,12 @@
 function postData(task) {
-  const title = task.title;
-  window.localStorage.setItem(title, JSON.stringify(task));
+  const project = localStorage.getItem(task.project);
+  if (project) {
+    const items = JSON.parse(localStorage.getItem(task.project));
+    items.push(task);
+    localStorage.setItem(task.project, JSON.stringify(items));
+  } else {
+    localStorage.setItem(task.project, JSON.stringify(Array(task)));
+  }
 }
 
 function getKey() {

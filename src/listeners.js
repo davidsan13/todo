@@ -11,9 +11,9 @@ function listeners() {
     const task = createTask();
     postData(task);
     formHidden();
-    setTimeout(() => {
-      window.location.reload();
-    }, 10);
+    // setTimeout(() => {
+    //   window.location.reload();
+    // }, 10);
   });
 }
 
