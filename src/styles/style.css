@@ -188,9 +188,32 @@ html {
 .main .ltCon {
   width: 25rem;
   height: 75vh;
+  font-size: 2.5rem;
   -ms-grid-column-align: center;
       justify-self: center;
   -webkit-box-shadow: var(--box-shadow-1);
           box-shadow: var(--box-shadow-1);
+}
+
+.main .ltCon .allCon {
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+
+.main .ltCon .project:hover .projectContent {
+  display: inline;
+}
+
+.main .ltCon .taskContent {
+  display: none;
+}
+
+.main .ltCon .projectContent {
+  display: none;
+  float: left;
+}
+
+.main .ltCon .projectContent:hover .taskContent {
+  display: inline;
 }
 /*# sourceMappingURL=style.css.map */

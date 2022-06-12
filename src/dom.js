@@ -1,13 +1,22 @@
 import { form, formActive } from './form';
-import { getProject } from './localStorage';
+import { getProject, getKey } from './localStorage';
 
 function renderData() {
-  const projects = getProject();
+  const projects = getKey();
   const container = document.createElement('div');
   projects.forEach((item) => {
-    let project = document.createElement('div');
-    project.classList.add(item);
+    const project = document.createElement('div');
+    const taskCon = document.createElement('div');
+    taskCon.classList.add('taskContent');
+    project.classList.add('projectContent');
     project.textContent = item;
+    const values = JSON.parse(localStorage.getItem(item));
+    values.forEach((value) => {
+      const task = document.createElement('div');
+      task.textContent = value.title;
+      taskCon.appendChild(task);
+    });
+    project.appendChild(taskCon);
     container.appendChild(project);
   });
   return container;
@@ -20,7 +29,8 @@ function renderLayout() {
   const btn = document.createElement('button');
   const allCon = document.createElement('div');
   const project = document.createElement('div');
-  const today = document.createElement('today');
+  const today = document.createElement('div');
+  const h1 = document.createElement('h1');
 
   main.classList.add('main');
   rtCon.classList.add('rtCon');
@@ -31,10 +41,12 @@ function renderLayout() {
   today.classList.add('today');
 
   btn.textContent = '+';
+  h1.textContent = 'Title';
   project.textContent = 'Project';
   today.textContent = 'Today';
 
   project.appendChild(renderData());
+  allCon.appendChild(h1);
   allCon.appendChild(today);
   allCon.appendChild(project);
   ltCon.appendChild(allCon);

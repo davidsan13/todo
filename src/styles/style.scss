@@ -147,9 +147,26 @@ html {
   .ltCon {
     width: 25rem;
     height: 75vh;
+    font-size: 2.5rem;
     justify-self: center;
     box-shadow: var(--box-shadow-1);
-    
+    .allCon {
+      margin-top: 2rem;
+      margin-left: 2rem;
+    }
+    .project:hover .projectContent{
+      display: inline;
+    }
+    .taskContent {
+      display: none;
+    }
+    .projectContent {
+      display: none;
+      float: left;
+    }
+    .projectContent:hover .taskContent {
+      display: inline;
+    }
   }
 }
 
