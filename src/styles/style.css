@@ -196,24 +196,42 @@ html {
 }
 
 .main .ltCon .allCon {
-  margin-top: 2rem;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 3rem;
+  padding: 2rem;
+}
+
+.main .ltCon .allCon h2 {
+  font-weight: bold;
+}
+
+.main .ltCon .allCon .project {
+  float: left;
+}
+
+.main .ltCon .allCon .project .projectContent {
+  display: none;
+  font-weight: lighter;
   margin-left: 2rem;
 }
 
-.main .ltCon .project:hover .projectContent {
+.main .ltCon .allCon .projectContent:hover .taskContent {
   display: inline;
+}
+
+.main .ltCon .allCon .project:hover .projectContent {
+  display: block;
 }
 
 .main .ltCon .taskContent {
   display: none;
-}
-
-.main .ltCon .projectContent {
-  display: none;
-  float: left;
-}
-
-.main .ltCon .projectContent:hover .taskContent {
-  display: inline;
 }
 /*# sourceMappingURL=style.css.map */

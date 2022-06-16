@@ -1,6 +1,6 @@
-const Task = (title, date, priority, project) => {
-  let done = false;
+const Task = (title, date, priority, project, done) => {
   
+
   if (project == null) {
     project = 'default';
   }
@@ -24,8 +24,9 @@ function createTask() {
   const date = document.getElementById('date').value;
   const priority = document.getElementById('pri').value;
   const project = document.getElementById('pro').value;
+  const done = document.getElementById('done').value;
 
-  const task1 = Task(title, date, priority, project);
+  const task1 = Task(title, date, priority, project, done);
 
   return task1;
 }

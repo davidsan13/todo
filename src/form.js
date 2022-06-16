@@ -3,7 +3,6 @@ function form() {
   const taskForm = document.createElement('form');
   const titleLl = document.createElement('label');
   const titleInp = document.createElement('input');
-  
   const dateLl = document.createElement('label');
   const dateInp = document.createElement('input');
   const priLl = document.createElement('label');
@@ -16,7 +15,14 @@ function form() {
   const cancel = document.createElement('button');
   const addBtn = document.createElement('input');
 
+  const done = document.createElement('input');
+
+
   formCon.classList.add('formCon');
+
+  done.setAttribute('type', 'checkbox');
+  done.setAttribute('id', 'done');
+  done.setAttribute('value', 'true')
   titleLl.htmlFor = 'title';
   titleInp.setAttribute('placeholder', 'Add a task');
   titleInp.setAttribute('id', 'title');
@@ -68,7 +74,7 @@ function form() {
   taskForm.appendChild(proInp);
   taskForm.appendChild(addBtn);
   taskForm.appendChild(cancel);
-
+  taskForm.appendChild(done);
   formCon.appendChild(taskForm);
   return formCon;
 }

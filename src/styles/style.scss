@@ -144,29 +144,50 @@ html {
     }
   }
   
+
   .ltCon {
     width: 25rem;
     height: 75vh;
     font-size: 2.5rem;
     justify-self: center;
     box-shadow: var(--box-shadow-1);
+   
     .allCon {
-      margin-top: 2rem;
-      margin-left: 2rem;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      h2 {
+        font-weight: bold;
+      }
+      // margin-top: 2rem;
+      // margin-left: 2rem;
+      padding: 2rem;
+      .project {
+        float: left;
+        .projectContent {
+          display: none;
+          font-weight: lighter;
+
+          margin-left: 2rem;
+          // float: left;
+        }
+      }
+      .projectContent:hover .taskContent {
+        display: inline;
+      }
+      .project:hover .projectContent{
+        display: block;
+      }
     }
-    .project:hover .projectContent{
-      display: inline;
-    }
+    
+    
     .taskContent {
       display: none;
     }
-    .projectContent {
-      display: none;
-      float: left;
-    }
-    .projectContent:hover .taskContent {
-      display: inline;
-    }
+    
+    
   }
 }
 

@@ -1,11 +1,13 @@
 function postData(task) {
   const project = localStorage.getItem(task.project);
+  let projectKey = task.project;
+  projectKey = projectKey.replaceAll(' ', '');
   if (project) {
-    const items = JSON.parse(localStorage.getItem(task.project));
+    const items = JSON.parse(localStorage.getItem(projectKey));
     items.push(task);
-    localStorage.setItem(task.project, JSON.stringify(items));
+    localStorage.setItem(projectKey, JSON.stringify(items));
   } else {
-    localStorage.setItem(task.project, JSON.stringify(Array(task)));
+    localStorage.setItem(projectKey, JSON.stringify(Array(task)));
   }
 }
 
@@ -23,6 +25,10 @@ function getValue() {
   return values;
 }
 
+function getProjectValue(project) {
+  return JSON.parse(localStorage.getItem(project));
+}
+
 function getProject() {
   const projects = [];
   const values = getValue();
@@ -34,4 +40,4 @@ function getProject() {
   return projects;
 }
 
-export { postData, getKey, getValue, getProject };
+export { postData, getKey, getValue, getProject, getProjectValue };
