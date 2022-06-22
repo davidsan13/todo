@@ -5,17 +5,23 @@ import { postData, getKey, getValue, getProjectValue } from './localStorage';
 import  { createTask, Task, taskArray } from './task';
 
 function listeners() {
-  const addBtn = document.getElementById('addBtn');
-  projectListener()
+  const addBtn = document.getElementById('addForm');
+  const cancelBtn = document.getElementById('cancel');
+  projectListener();
+
   addBtn.addEventListener('click', (e) => {
     e.preventDefault();
     const task = createTask();
     postData(task);
     formHidden();
-    // setTimeout(() => {
-    //   window.location.reload();
-    // }, 10);
+    setTimeout(() => {
+      window.location.reload();
+    }, 10);
   });
+
+  cancelBtn.addEventListener('click', () => formHidden());
+
+
 }
 
 function projectListener() {

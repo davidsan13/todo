@@ -46,7 +46,7 @@ function renderLayout() {
   rtContent.classList.add('rtContent');
 
   btn.textContent = '+';
-  h1.textContent = 'Title';
+  h1.textContent = 'To Do List';
   project.textContent = 'Projects';
   today.textContent = 'Today';
   priority.textContent = 'Highest Priority';

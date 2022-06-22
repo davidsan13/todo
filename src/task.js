@@ -1,5 +1,4 @@
 const Task = (title, date, priority, project, done) => {
-  
 
   if (project == null) {
     project = 'default';
@@ -31,12 +30,6 @@ function createTask() {
   return task1;
 }
 
-function increment() {
-  let id = 0;
-
-
-  return id
-}
 const taskArray = [];
 
 export { Task, taskArray, createTask };

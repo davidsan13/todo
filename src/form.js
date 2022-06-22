@@ -57,7 +57,7 @@ function form() {
   cancel.setAttribute('value', 'cancel');
   cancel.setAttribute('type', 'button');
   addBtn.textContent = 'Add Task';
-  addBtn.setAttribute('id', 'addBtn');
+  addBtn.setAttribute('id', 'addForm');
   addBtn.setAttribute('value', 'add');
   addBtn.setAttribute('type', 'submit');
 
