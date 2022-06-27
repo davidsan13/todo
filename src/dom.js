@@ -7,18 +7,9 @@ function renderData() {
   container.classList.add('projectContent');
   projects.forEach((item) => {
     const project = document.createElement('div');
-    const taskCon = document.createElement('div');
-    taskCon.classList.add('taskContent');
     project.classList.add('project');
     project.dataset.key = item;
     project.textContent = item;
-    const values = JSON.parse(localStorage.getItem(item));
-    values.forEach((value) => {
-      const task = document.createElement('div');
-      task.textContent = value.title;
-      taskCon.appendChild(task);
-    });
-    project.appendChild(taskCon);
     container.appendChild(project);
   });
   return container;
@@ -66,27 +57,39 @@ function renderLayout() {
   return main;
 }
 
-function rightContainer(values) {
+function rightContainer(key, values) {
   const rtContent = document.querySelector('.rtContent');
-
+  const project = document.createElement('h1');
+  console.log(values)
+  project.textContent = key.charAt(0).toUpperCase() + key.slice(1);
+  rtContent.appendChild(project);
+  let index = 0;
   values.forEach((value) => {
+    const taskContent = document.createElement('div');
     const projectTitle = document.createElement('h1');
     const date = document.createElement('h1');
     const priority = document.createElement('h1');
     const checkbox = document.createElement('input');
+    const remove = document.createElement('i');
 
-    projectTitle.classList.add(value.title);
+    taskContent.classList.add('taskItem');
+    taskContent.dataset.index = index;
+    projectTitle.classList.add(value.title.replace(/ /g, ''));
     date.classList.add('date');
     priority.classList.add('priority');
     checkbox.classList.add('checkbox');
+    remove.classList.add('fa-solid', 'fa-trash');
 
     checkbox.setAttribute('type', 'checkbox');
     checkbox.checked = value.done;
-   
+
     projectTitle.textContent = value.title;
 
-    rtContent.appendChild(checkbox);
-    rtContent.appendChild(projectTitle);
+    taskContent.appendChild(checkbox);
+    taskContent.appendChild(projectTitle);
+    taskContent.appendChild(remove);
+    rtContent.appendChild(taskContent);
+    index++;
   });
 
   return rtContent;

@@ -17,12 +17,11 @@ function form() {
 
   const done = document.createElement('input');
 
-
   formCon.classList.add('formCon');
 
   done.setAttribute('type', 'checkbox');
   done.setAttribute('id', 'done');
-  done.setAttribute('value', 'true')
+  done.setAttribute('value', 'false');
   titleLl.htmlFor = 'title';
   titleInp.setAttribute('placeholder', 'Add a task');
   titleInp.setAttribute('id', 'title');
@@ -80,13 +79,13 @@ function form() {
 }
 
 function formActive() {
-  const formEl= document.querySelector('.formCon');
+  const formEl = document.querySelector('.formCon');
   formEl.classList.add('active');
 }
 
 function formHidden() {
-  const formEl= document.querySelector('.formCon');
+  const formEl = document.querySelector('.formCon');
   formEl.classList.remove('active');
 }
 
-export { form, formActive,formHidden };
+export { form, formActive, formHidden };

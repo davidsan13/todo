@@ -70,6 +70,7 @@ html {
 }
 
 .main {
+  cursor: default;
   position: relative;
   height: 100vh;
   display: -ms-grid;
@@ -185,6 +186,50 @@ html {
   right: 0;
 }
 
+.main .rtCon .rtContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 2rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 1rem;
+}
+
+.main .rtCon .rtContent > h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.main .rtCon .rtContent .taskItem {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: .01fr 1fr 1fr;
+      grid-template-columns: .01fr 1fr 1fr;
+  gap: 1rem;
+  font-size: 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .rtCon .rtContent .taskItem svg {
+  font-size: 1.5rem;
+  -ms-grid-column-align: end;
+      justify-self: end;
+  opacity: .7;
+}
+
+.main .rtCon .rtContent .taskItem svg:hover {
+  opacity: 1;
+}
+
 .main .ltCon {
   width: 25rem;
   height: 75vh;
@@ -193,6 +238,7 @@ html {
       justify-self: center;
   -webkit-box-shadow: var(--box-shadow-1);
           box-shadow: var(--box-shadow-1);
+  cursor: pointer;
 }
 
 .main .ltCon .allCon {
@@ -214,24 +260,17 @@ html {
 }
 
 .main .ltCon .allCon .project {
-  float: left;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
 }
 
 .main .ltCon .allCon .project .projectContent {
-  display: none;
   font-weight: lighter;
   margin-left: 2rem;
 }
 
-.main .ltCon .allCon .projectContent:hover .taskContent {
-  display: inline;
-}
-
-.main .ltCon .allCon .project:hover .projectContent {
-  display: block;
-}
-
-.main .ltCon .taskContent {
-  display: none;
+.main .ltCon .allCon .project .projectContent .project {
+  float: left;
 }
 /*# sourceMappingURL=style.css.map */

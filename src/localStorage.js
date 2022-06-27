@@ -1,7 +1,7 @@
 function postData(task) {
   const project = localStorage.getItem(task.project);
-  let projectKey = task.project;
-  projectKey = projectKey.replaceAll(' ', '');
+  const projectKey = task.project;
+
   if (project) {
     const items = JSON.parse(localStorage.getItem(projectKey));
     items.push(task);
