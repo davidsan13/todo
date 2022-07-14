@@ -1,16 +1,22 @@
+import { Project } from './task';
 function postData(task) {
   const project = localStorage.getItem(task.project);
   const projectKey = task.project;
 
   if (project) {
     const items = JSON.parse(localStorage.getItem(projectKey));
-    items.push(task);
+    items.tasksList.push(task);
     localStorage.setItem(projectKey, JSON.stringify(items));
   } else {
-    localStorage.setItem(projectKey, JSON.stringify(Array(task)));
+    const createProject = Project(task);
+    createProject.addTask();
+    localStorage.setItem(projectKey, JSON.stringify(createProject));
   }
 }
 
+function update(key, item){
+  localStorage.setItem(key, JSON.stringify(item));
+}
 function getKey() {
   const keys = Array(Object.keys(localStorage));
   return keys[0];
@@ -40,4 +46,11 @@ function getProject() {
   return projects;
 }
 
-export { postData, getKey, getValue, getProject, getProjectValue };
+function removeTask(key, index) {
+  const tasks = getProjectValue(key);
+  tasks.tasksList.splice(index, 1);
+  update(key, tasks);
+  return tasks;
+}
+
+export { postData, getKey, getValue, getProject, getProjectValue, removeTask };

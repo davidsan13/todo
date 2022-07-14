@@ -3,11 +3,19 @@ const Task = (title, date, priority, project) => {
 
   const isDone = () => {
     done = true;
-  }
+  };
 
   return { title, date, priority, project, done };
-}
+};
 
+const Project = (task) => {
+  const tasksList = [];
+
+  const addTask = () => {
+    tasksList.push(task);
+  };
+  return { tasksList, addTask };
+};
 
 function createTask() {
   const title = document.getElementById('title').value;
@@ -25,4 +33,4 @@ function createTask() {
   return task1;
 }
 
-export { Task, createTask };
+export { Task, createTask, Project };

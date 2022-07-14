@@ -19,6 +19,7 @@ function component() {
   listener();
   listeners();
   getProject();
+  
 }
 component();
 // document.body.appendChild(component());

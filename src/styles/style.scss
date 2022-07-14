@@ -156,18 +156,21 @@ html {
       .taskItem {
         width: 100%;
         display: grid;
-        grid-template-columns: .01fr 1fr 1fr;
+        grid-template-columns: .01fr 5fr .2fr;
         gap: 1rem;
         font-size: 2rem;
         align-items: center;
-        svg {
-          font-size: 1.5rem;
+        .icon{
           justify-self: end;
-          opacity: .7;
-          &:hover {
-            opacity: 1;
+          svg {
+            font-size: 1.5rem;
+            opacity: .7;
+            &:hover {
+              opacity: 1;
+            }
           }
         }
+        
       }
     }
   }

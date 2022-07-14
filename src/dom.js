@@ -60,7 +60,7 @@ function renderLayout() {
 function rightContainer(key, values) {
   const rtContent = document.querySelector('.rtContent');
   const project = document.createElement('h1');
-  console.log(values)
+  project.classList.add('rtProjectTitle');
   project.textContent = key.charAt(0).toUpperCase() + key.slice(1);
   rtContent.appendChild(project);
   let index = 0;
@@ -70,6 +70,7 @@ function rightContainer(key, values) {
     const date = document.createElement('h1');
     const priority = document.createElement('h1');
     const checkbox = document.createElement('input');
+    const icon = document.createElement('div');
     const remove = document.createElement('i');
 
     taskContent.classList.add('taskItem');
@@ -78,16 +79,17 @@ function rightContainer(key, values) {
     date.classList.add('date');
     priority.classList.add('priority');
     checkbox.classList.add('checkbox');
+    icon.classList.add('icon');
     remove.classList.add('fa-solid', 'fa-trash');
 
     checkbox.setAttribute('type', 'checkbox');
     checkbox.checked = value.done;
 
     projectTitle.textContent = value.title;
-
+    icon.appendChild(remove)
     taskContent.appendChild(checkbox);
     taskContent.appendChild(projectTitle);
-    taskContent.appendChild(remove);
+    taskContent.appendChild(icon);
     rtContent.appendChild(taskContent);
     index++;
   });

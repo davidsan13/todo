@@ -1,24 +1,29 @@
 import { rightContainer } from './dom';
 import { formHidden } from './form';
-import { postData, getKey, getValue, getProjectValue } from './localStorage';
-import { createTask, Task, taskArray } from './task';
+import { postData, getKey, getValue, getProjectValue, removeTask } from './localStorage';
+import { createTask} from './task';
 
+
+function renderRtContainer(key, value) {
+  const rtContent = document.querySelector('.rtContent');
+  rtContent.textContent = ' ';
+  rightContainer(key, value);
+  // eslint-disable-next-line no-use-before-define
+  deleteListener();
+}
 
 function listeners() {
   const addBtn = document.getElementById('addForm');
   const cancelBtn = document.getElementById('cancel');
-  projectListener();
-
+  projectListener(); //Need to add to index.js and delete after
   addBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    const rtContent = document.querySelector('.rtContent');
     const task = createTask();
     postData(task);
     formHidden();
     const key = task.project;
-    const values = getProjectValue(key);
-    rtContent.textContent = ' ';
-    rightContainer(key, values);
+    const values = getProjectValue(key).tasksList;
+    renderRtContainer(key, values);
     // setTimeout(() => {
     //   window.location.reload();
     // }, 10);
@@ -27,18 +32,27 @@ function listeners() {
   cancelBtn.addEventListener('click', () => formHidden());
 }
 
-function projectListener() {
-  const btns = document.querySelectorAll('.project');
-  const rtContent = document.querySelector('.rtContent');
+function deleteListener() {
+  const btns = document.querySelectorAll('.icon');
+  const key = document.querySelector('.rtProjectTitle').textContent.toLowerCase();
   btns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const { key } = btn.dataset;
-      const values = getProjectValue(key);
-      rtContent.textContent = ' ';
-      rightContainer(key, values);
-      // console.log(value);
+    btn.addEventListener('click', (e) => {
+      const target = e.target.closest('div[class=taskItem]');
+      const {index} = target.dataset;
+      const value = removeTask(key, index).tasksList;
+      renderRtContainer(key, value);
     });
   });
 }
 
+function projectListener() {
+  const btns = document.querySelectorAll('.project');
+  btns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const { key } = btn.dataset;
+      const value = getProjectValue(key).tasksList;
+      renderRtContainer(key, value);
+    });
+  });
+}
 export default listeners;

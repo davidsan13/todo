@@ -210,8 +210,8 @@ html {
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: .01fr 1fr 1fr;
-      grid-template-columns: .01fr 1fr 1fr;
+  -ms-grid-columns: .01fr 5fr .2fr;
+      grid-template-columns: .01fr 5fr .2fr;
   gap: 1rem;
   font-size: 2rem;
   -webkit-box-align: center;
@@ -219,14 +219,17 @@ html {
           align-items: center;
 }
 
-.main .rtCon .rtContent .taskItem svg {
-  font-size: 1.5rem;
+.main .rtCon .rtContent .taskItem .icon {
   -ms-grid-column-align: end;
       justify-self: end;
+}
+
+.main .rtCon .rtContent .taskItem .icon svg {
+  font-size: 1.5rem;
   opacity: .7;
 }
 
-.main .rtCon .rtContent .taskItem svg:hover {
+.main .rtCon .rtContent .taskItem .icon svg:hover {
   opacity: 1;
 }
 
