@@ -1,5 +1,6 @@
 import { form, formActive } from './form';
-import { getProject, getKey } from './localStorage';
+import { getProject, getKey, valueGetter } from './localStorage';
+import { deleteListener } from './listeners';
 
 function renderData() {
   const projects = getKey();
@@ -86,7 +87,7 @@ function rightContainer(key, values) {
     checkbox.checked = value.done;
 
     projectTitle.textContent = value.title;
-    icon.appendChild(remove)
+    icon.appendChild(remove);
     taskContent.appendChild(checkbox);
     taskContent.appendChild(projectTitle);
     taskContent.appendChild(icon);
@@ -97,9 +98,16 @@ function rightContainer(key, values) {
   return rtContent;
 }
 
+function defaultProject() {
+  const key = 'default';
+  const value = valueGetter(key).tasksList;
+  console.log(value);
+  rightContainer(key, value);
+  deleteListener();
+}
 const listener = () => {
   const addBtn = document.querySelector('.addBtn');
   addBtn.addEventListener('click', () => formActive());
 };
 
-export { renderLayout, listener, rightContainer };
+export { renderLayout, listener, rightContainer, defaultProject };

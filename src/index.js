@@ -1,8 +1,8 @@
 import './styles/style.css';
 import Task from './task';
 import form from './form';
-import { renderLayout, listener } from './dom';
-import listeners from './listeners';
+import { renderLayout, listener, defaultProject } from './dom';
+import { listeners } from './listeners';
 import { getProject } from './localStorage';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -16,6 +16,7 @@ function component() {
 
   // element.appendChild(form());
   document.body.appendChild(renderLayout());
+  defaultProject()
   listener();
   listeners();
   getProject();

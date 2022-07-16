@@ -55,4 +55,4 @@ function projectListener() {
     });
   });
 }
-export default listeners;
+export { listeners, deleteListener };

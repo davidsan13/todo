@@ -21,13 +21,19 @@ function getKey() {
   const keys = Array(Object.keys(localStorage));
   return keys[0];
 }
-
+// Get all key and values associated with key
 function getValue() {
   const values = [];
   const keys = getKey();
   keys.forEach((key) => {
     values.push(JSON.parse(localStorage.getItem(key)));
   });
+  return values;
+}
+
+function valueGetter(key) {
+  const values = JSON.parse(localStorage.getItem(key));
+
   return values;
 }
 
@@ -53,4 +59,4 @@ function removeTask(key, index) {
   return tasks;
 }
 
-export { postData, getKey, getValue, getProject, getProjectValue, removeTask };
+export { postData, getKey, getValue, getProject, getProjectValue, removeTask, valueGetter };
