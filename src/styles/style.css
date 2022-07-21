@@ -262,18 +262,8 @@ html {
   font-weight: bold;
 }
 
-.main .ltCon .allCon .project {
-  -webkit-box-flex: 2;
-      -ms-flex-positive: 2;
-          flex-grow: 2;
-}
-
-.main .ltCon .allCon .project .projectContent {
+.main .ltCon .allCon .projectContent {
   font-weight: lighter;
-  margin-left: 2rem;
-}
-
-.main .ltCon .allCon .project .projectContent .project {
-  float: left;
+  margin-left: .7rem;
 }
 /*# sourceMappingURL=style.css.map */

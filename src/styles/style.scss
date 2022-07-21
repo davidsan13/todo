@@ -170,7 +170,6 @@ html {
             }
           }
         }
-        
       }
     }
   }
@@ -189,25 +188,19 @@ html {
       display: flex;
       flex-direction: column;
       gap: 3rem;
+      padding: 2rem;
       h2 {
         font-weight: bold;
       }
       // margin-top: 2rem;
       // margin-left: 2rem;
-      padding: 2rem;
-      .project {
-        flex-grow: 2;
-        .projectContent {
-          // display: block;
-          font-weight: lighter;
-          margin-left: 2rem;
-          // float: left;
-          .project {
-            float: left;
-          }
-        }
-        .projectHead:hover .projectContent{
-          // display: block;
+      .projectContent {
+        // display: block;
+        font-weight: lighter;
+        margin-left: .7rem;
+        // float: left;
+        .project {
+         
         }
       }
     }
