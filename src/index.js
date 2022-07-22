@@ -9,6 +9,7 @@ import { getProject } from './localStorage';
 import '@fortawesome/fontawesome-free/css/all.css';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@fortawesome/fontawesome-free/js/all';
+import Today from './today';
 
 function component() {
   // const element = document.createElement('div');
@@ -20,7 +21,7 @@ function component() {
   listener();
   listeners();
   getProject();
-  
+  Today();
 }
 component();
 // document.body.appendChild(component());

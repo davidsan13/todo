@@ -101,7 +101,6 @@ function rightContainer(key, values) {
 function defaultProject() {
   const key = 'default';
   const value = valueGetter(key).tasksList;
-  console.log(value);
   rightContainer(key, value);
   deleteListener();
 }
