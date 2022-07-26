@@ -2,9 +2,9 @@ import { rightContainer } from './dom';
 import { formHidden } from './form';
 import { postData, getKey, getValue, getProjectValue, removeTask } from './localStorage';
 import { createTask} from './task';
-import Today from './today';
+import today from './today';
 
-
+// move to dom.js
 function renderRtContainer(key, value) {
   const rtContent = document.querySelector('.rtContent');
   rtContent.textContent = ' ';
@@ -61,10 +61,12 @@ function projectListener() {
 function todayListener() {
   const btn = document.querySelector('.today');
   btn.addEventListener('click', () => {
-  Today()
-  deleteListener()
+    const rtContent = document.querySelector('.rtContent');
+    rtContent.textContent = ' ';
+    today();
+    deleteListener();
   });
 }
 
 
-export { listeners, deleteListener };
+export { listeners, deleteListener, renderRtContainer };

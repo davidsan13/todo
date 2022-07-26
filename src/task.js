@@ -25,9 +25,9 @@ function createTask() {
   const done = document.getElementById('done').value;
 
   if (project == null || project === '') {
-    project = 'default';
+    project = 'Default';
   }
-
+  project = project.charAt(0).toUpperCase() + project.slice(1)
   const task1 = Task(title, date, priority, project, done);
 
   return task1;

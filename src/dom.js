@@ -62,7 +62,7 @@ function rightContainer(key, values) {
   const rtContent = document.querySelector('.rtContent');
   const project = document.createElement('h1');
   project.classList.add('rtProjectTitle');
-  project.textContent = key.charAt(0).toUpperCase() + key.slice(1);
+  project.textContent = key;
   rtContent.appendChild(project);
   let index = 0;
   values.forEach((value) => {

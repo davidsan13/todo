@@ -1,6 +1,6 @@
 // Get all tasks from projects
 // Filter tasks that has a do date equal to today
-import { rightContainer } from './dom';
+import {rightContainer } from './dom'
 import { getKey, valueGetter } from './localStorage';
 
 function hasTodayTask(key) {
@@ -19,9 +19,8 @@ function hasTodayTask(key) {
 
   return tasks;
 }
-export default function Today() {
-  const today = new Date();
-  const date = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+export default function today() {
+  
   const projectTasksNow = [];
   const keys = getKey();
   const project = {};
