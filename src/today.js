@@ -1,5 +1,6 @@
 // Get all tasks from projects
 // Filter tasks that has a do date equal to today
+import { rightContainer } from './dom';
 import { getKey, valueGetter } from './localStorage';
 
 function hasTodayTask(key) {
@@ -10,14 +11,13 @@ function hasTodayTask(key) {
   const tasks = [];
   if (values != null) {
     values.forEach((value) => {
-      if (value.date == date) {
+      if (value.date === date) {
         tasks.push(value);
       }
-    })
-    return tasks;
+    });
   }
 
-  
+  return tasks;
 }
 export default function Today() {
   const today = new Date();
@@ -25,17 +25,13 @@ export default function Today() {
   const projectTasksNow = [];
   const keys = getKey();
   const project = {};
-  // hasTodayTask('new2')
   keys.forEach((key) => {
     const tasks = hasTodayTask(key);
-    if(tasks!= null) {
+    if (tasks != null && tasks.length > 0) {
       project[key] = tasks;
     }
   });
-  // const asArray = Object.entries(project);
-  // const filtered = asArray.filter(([key, value]) => value.length > 0);
-  // const s = Object.fromEntries(filtered);
-  console.log(project)
-
+  Object.keys(project).forEach((key) => {
+    rightContainer(key, project[key]);
+  });
 }
-

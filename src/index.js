@@ -21,7 +21,6 @@ function component() {
   listener();
   listeners();
   getProject();
-  Today();
 }
 component();
 // document.body.appendChild(component());

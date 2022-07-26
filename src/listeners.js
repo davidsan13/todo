@@ -2,6 +2,7 @@ import { rightContainer } from './dom';
 import { formHidden } from './form';
 import { postData, getKey, getValue, getProjectValue, removeTask } from './localStorage';
 import { createTask} from './task';
+import Today from './today';
 
 
 function renderRtContainer(key, value) {
@@ -29,16 +30,17 @@ function listeners() {
     // }, 10);
   });
 
+  todayListener();
   cancelBtn.addEventListener('click', () => formHidden());
 }
 
 function deleteListener() {
   const btns = document.querySelectorAll('.icon');
-  const key = document.querySelector('.rtProjectTitle').textContent.toLowerCase();
   btns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
       const target = e.target.closest('div[class=taskItem]');
       const {index} = target.dataset;
+      const key = target.dataset.project;
       const value = removeTask(key, index).tasksList;
       renderRtContainer(key, value);
     });
@@ -55,4 +57,14 @@ function projectListener() {
     });
   });
 }
+
+function todayListener() {
+  const btn = document.querySelector('.today');
+  btn.addEventListener('click', () => {
+  Today()
+  deleteListener()
+  });
+}
+
+
 export { listeners, deleteListener };

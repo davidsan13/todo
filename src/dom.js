@@ -76,6 +76,7 @@ function rightContainer(key, values) {
 
     taskContent.classList.add('taskItem');
     taskContent.dataset.index = index;
+    taskContent.dataset.project = key;
     projectTitle.classList.add(value.title.replace(/ /g, ''));
     date.classList.add('date');
     priority.classList.add('priority');
