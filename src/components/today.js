@@ -4,9 +4,9 @@ import {rightContainer } from './dom'
 import { getKey, valueGetter } from './localStorage';
 
 function hasTodayTask(key) {
-  // const today = new Date();
-  // const date = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
-  const date = '2022-07-22';
+  const today = new Date();
+  const date = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+
   const values = valueGetter(key).tasksList;
   const tasks = [];
   if (values != null) {
