@@ -6,7 +6,6 @@ import { getKey, valueGetter } from './localStorage';
 function hasTodayTask(key) {
   const today = new Date();
   const date = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
-
   const values = valueGetter(key).tasksList;
   const tasks = [];
   if (values != null) {
@@ -20,7 +19,8 @@ function hasTodayTask(key) {
   return tasks;
 }
 export default function today() {
-  
+  const rtContent = document.querySelector('.rtContent');
+  rtContent.textContent = ' ';
   const projectTasksNow = [];
   const keys = getKey();
   const project = {};

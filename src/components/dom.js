@@ -34,9 +34,12 @@ function renderLayout() {
   btn.classList.add('addBtn');
   allCon.classList.add('allCon');
   project.classList.add('projectHead');
-  today.classList.add('today');
+  today.classList.add('urgent');
   rtContent.classList.add('rtContent');
+  priority.classList.add('urgent')
 
+  today.dataset.key = 'today';
+  priority.dataset.key = 'priority';
   btn.textContent = '+';
   h1.textContent = 'To Do List';
   project.textContent = 'Projects';

@@ -1,4 +1,4 @@
-import {rightContainer } from './dom'
+import { rightContainer } from './dom';
 import { getKey, valueGetter } from './localStorage';
 
 function hasTodayTask(key) {
@@ -16,8 +16,9 @@ function hasTodayTask(key) {
   return tasks;
 }
 
-export default function today() {
-  
+export default function priority() {
+  const rtContent = document.querySelector('.rtContent');
+  rtContent.textContent = ' ';
   const projectTasksNow = [];
   const keys = getKey();
   const project = {};
