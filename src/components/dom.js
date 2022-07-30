@@ -1,6 +1,7 @@
 import { form, formActive } from './form';
 import { getProject, getKey, valueGetter } from './localStorage';
 import { deleteListener } from './listeners';
+import navi from './navi';
 
 function renderData() {
   const projects = getKey();
@@ -21,26 +22,28 @@ function renderLayout() {
   const rtCon = document.createElement('div');
   const rtContent = document.createElement('div');
   const ltCon = document.createElement('div');
-  const btn = document.createElement('button');
+  
   const allCon = document.createElement('div');
   const project = document.createElement('h2');
   const today = document.createElement('h2');
   const priority = document.createElement('h2');
   const h1 = document.createElement('h1');
+  const content = document.createElement('div');
 
   main.classList.add('main');
+  content.classList.add('content')
   rtCon.classList.add('rtCon');
   ltCon.classList.add('ltCon');
-  btn.classList.add('addBtn');
+  
   allCon.classList.add('allCon');
   project.classList.add('projectHead');
   today.classList.add('urgent');
   rtContent.classList.add('rtContent');
-  priority.classList.add('urgent')
+  priority.classList.add('urgent');
 
   today.dataset.key = 'today';
   priority.dataset.key = 'priority';
-  btn.textContent = '+';
+  
   h1.textContent = 'To Do List';
   project.textContent = 'Projects';
   today.textContent = 'Today';
@@ -53,10 +56,12 @@ function renderLayout() {
   allCon.appendChild(project);
   ltCon.appendChild(allCon);
   rtCon.appendChild(rtContent);
-  rtCon.appendChild(btn);
+  content.appendChild(ltCon);
+  content.appendChild(rtCon);
   main.appendChild(form());
-  main.appendChild(ltCon);
-  main.appendChild(rtCon);
+  main.appendChild(navi());
+  // main.appendChild(ltCon);
+  main.appendChild(content);
 
   return main;
 }
@@ -64,6 +69,9 @@ function renderLayout() {
 function rightContainer(key, values) {
   const rtContent = document.querySelector('.rtContent');
   const project = document.createElement('h1');
+  const btn = document.createElement('button');
+  btn.classList.add('addBtn');
+  btn.textContent = '+';
   project.classList.add('rtProjectTitle');
   project.textContent = key;
   rtContent.appendChild(project);
@@ -98,7 +106,7 @@ function rightContainer(key, values) {
     rtContent.appendChild(taskContent);
     index++;
   });
-
+  rtContent.appendChild(btn);
   return rtContent;
 }
 

@@ -21,8 +21,14 @@ section {
   display: block;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   line-height: 1;
+  height: 100vh;
+  overflow-x: hidden;
 }
 
 ol,
@@ -49,12 +55,12 @@ table {
 }
 
 :root {
-  --color-primary: rgb(255, 255, 255);
-  --color-secondary: #168FFF;
+  --color-primary: #15304b;
+  --color-secondary:#ef673d;
   --color-white: #FFFFFF;
   --color-black: rgb(41, 41, 41);
-  --color-grey0: #f8f8f8;
-  --color-grey-1: #dbe1e8;
+  --color-grey-0: #373d4b;
+  --color-grey-1: #a3a8a4;
   --color-grey-2: #b2becd;
   --color-grey-3: #6c7983;
   --color-grey-4: #454e56;
@@ -70,19 +76,16 @@ html {
 }
 
 .main {
+  height: 100%;
+  width: 100%;
   cursor: default;
-  position: relative;
-  height: 100vh;
-  display: -ms-grid;
-  display: grid;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-grid-columns: minmax(400px, 0.5fr) minmax(800px, 900px);
-      grid-template-columns: minmax(400px, 0.5fr) minmax(800px, 900px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .main .formCon {
@@ -169,41 +172,68 @@ html {
   grid-column: 2 / 4;
 }
 
-.main .rtCon {
-  width: 65rem;
-  height: 75vh;
-  position: relative;
-  -ms-grid-column-align: start;
-      justify-self: start;
-  -webkit-box-shadow: var(--box-shadow-1);
-          box-shadow: var(--box-shadow-1);
+.main .nav {
+  text-align: center;
+  height: 9rem;
+  width: 100%;
+  font-size: 3rem;
+  font-weight: bold;
+  background-color: var(--color-grey-1);
 }
 
-.main .rtCon .addBtn {
-  position: absolute;
-  font-size: 6rem;
-  bottom: 0;
-  right: 0;
+.main .nav h1 {
+  margin: auto;
+  padding: 10px;
+}
+
+.main .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.main .rtCon {
+  -webkit-box-flex: 3;
+      -ms-flex-positive: 3;
+          flex-grow: 3;
+  min-width: 500px;
+  height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-shadow: var(--box-shadow-1);
+          box-shadow: var(--box-shadow-1);
 }
 
 .main .rtCon .rtContent {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 75%;
   padding: 2rem;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
   gap: 1rem;
+  position: relative;
 }
 
 .main .rtCon .rtContent > h1 {
   font-size: 3rem;
   font-weight: bold;
+}
+
+.main .rtCon .rtContent .addBtn {
+  position: absolute;
+  font-size: 6rem;
+  bottom: 0;
+  right: 0;
 }
 
 .main .rtCon .rtContent .taskItem {
@@ -234,18 +264,15 @@ html {
 }
 
 .main .ltCon {
-  width: 25rem;
-  height: 75vh;
+  min-width: 300px;
+  height: 100%;
   font-size: 2.5rem;
-  -ms-grid-column-align: center;
-      justify-self: center;
   -webkit-box-shadow: var(--box-shadow-1);
           box-shadow: var(--box-shadow-1);
   cursor: pointer;
 }
 
 .main .ltCon .allCon {
-  height: 100%;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -254,6 +281,8 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
   gap: 3rem;
   padding: 2rem;
 }
