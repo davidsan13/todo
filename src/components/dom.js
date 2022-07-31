@@ -31,7 +31,7 @@ function renderLayout() {
   const content = document.createElement('div');
 
   main.classList.add('main');
-  content.classList.add('content')
+  content.classList.add('content');
   rtCon.classList.add('rtCon');
   ltCon.classList.add('ltCon');
   

@@ -6,4 +6,4 @@ export default function navi() {
   nav.appendChild(title);
 
   return nav;
-};
+}
