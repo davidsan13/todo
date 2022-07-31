@@ -178,11 +178,12 @@ html {
   width: 100%;
   font-size: 3rem;
   font-weight: bold;
+  border-bottom: 4px solid var(--color-secondary);
   background-color: var(--color-grey-1);
 }
 
 .main .nav h1 {
-  margin: auto;
+  line-height: 2;
   padding: 10px;
 }
 
