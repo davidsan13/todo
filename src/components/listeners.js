@@ -79,11 +79,17 @@ function projectListener() {
 
 function urgentListener() {
   const btns = document.querySelectorAll('.urgent');
+  
   btns.forEach((btn) => {
     btn.addEventListener('click', () => {
       const rtContent = document.querySelector('.rtContent');
       rtContent.textContent = ' ';
+      const active = document.querySelector('.active');
+      if(active != null) {
+        active.classList.remove('active');
+      }
       const btnData = btn.dataset.key;
+      btn.classList.add('active')
       if(btnData === 'priority') {
         rtContent.classList.add('priority')
         rtContent.classList.remove('today');

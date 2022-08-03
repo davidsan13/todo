@@ -2,6 +2,7 @@ import { form, formActive } from './form';
 import { getProject, getKey, valueGetter } from './localStorage';
 import { deleteListener } from './listeners';
 import navi from './navi';
+import { faHomeLg } from '@fortawesome/free-solid-svg-icons';
 
 function renderData() {
   const projects = getKey();
@@ -17,42 +18,69 @@ function renderData() {
   return container;
 }
 
+function homeCon() {
+  const home = document.createElement('div');
+  const inbox = document.createElement('h2');
+  const today = document.createElement('h2');
+  const priority = document.createElement('h2');
+  const inboxIcon = document.createElement('i');
+  const todayIcon = document.createElement('i');
+  const todayItems = document.createElement('div');
+  const inboxItems = document.createElement('div');
+  const priorityItems = document.createElement('div');
+
+  todayItems.classList.add('homeItem');
+  inboxItems.classList.add('homeItem');
+  priorityItems.classList.add('homeItem');
+  todayIcon.classList.add('fa-solid', 'fa-calendar-day');
+  inboxIcon.classList.add('fa-solid', 'fa-inbox');
+
+  home.classList.add('home');
+  today.classList.add('urgent');
+  inbox.classList.add('urgent');
+  priority.classList.add('urgent');
+
+  inbox.textContent = 'Inbox';
+  today.textContent = 'Today';
+  priority.textContent = 'Highest Priority';
+
+  today.dataset.key = 'today';
+  priority.dataset.key = 'priority';
+
+  todayItems.appendChild(todayIcon);
+  todayItems.appendChild(today);
+  home.appendChild(todayItems);
+  home.appendChild(inboxItems);
+  home.appendChild(priorityItems);
+  
+
+  return home;
+}
+
 function renderLayout() {
   const main = document.createElement('div');
   const rtCon = document.createElement('div');
   const rtContent = document.createElement('div');
   const ltCon = document.createElement('div');
-  
   const allCon = document.createElement('div');
   const project = document.createElement('h2');
-  const today = document.createElement('h2');
-  const priority = document.createElement('h2');
   const h1 = document.createElement('h1');
   const content = document.createElement('div');
-
+  
   main.classList.add('main');
   content.classList.add('content');
   rtCon.classList.add('rtCon');
   ltCon.classList.add('ltCon');
-  
   allCon.classList.add('allCon');
   project.classList.add('projectHead');
-  today.classList.add('urgent');
   rtContent.classList.add('rtContent');
-  priority.classList.add('urgent');
-
-  today.dataset.key = 'today';
-  priority.dataset.key = 'priority';
-  
+ 
   h1.textContent = 'To Do List';
   project.textContent = 'Projects';
-  today.textContent = 'Today';
-  priority.textContent = 'Highest Priority';
-
+  
   project.appendChild(renderData());
   allCon.appendChild(h1);
-  allCon.appendChild(priority);
-  allCon.appendChild(today);
+  allCon.appendChild(homeCon());
   allCon.appendChild(project);
   ltCon.appendChild(allCon);
   rtCon.appendChild(rtContent);

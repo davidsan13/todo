@@ -62,7 +62,7 @@ table {
   --color-grey-0: #373d4b;
   --color-grey-1: #a3a8a4;
   --color-grey-2: #b2becd;
-  --color-grey-3: #6c7983;
+  --color-grey-3: #d8dee6;
   --color-grey-4: #454e56;
   --color-grey-5: #2a2e35;
   --color-grey-6: #12181b;
@@ -184,6 +184,7 @@ html {
 
 .main .nav h1 {
   line-height: 2;
+  color: white;
   padding: 10px;
 }
 
@@ -270,6 +271,7 @@ html {
   font-size: 2.5rem;
   -webkit-box-shadow: var(--box-shadow-1);
           box-shadow: var(--box-shadow-1);
+  border-right: 5px solid var(--color-primary);
   cursor: pointer;
 }
 
@@ -286,6 +288,21 @@ html {
       align-content: center;
   gap: 3rem;
   padding: 2rem;
+}
+
+.main .ltCon .allCon .urgent.active {
+  background: var(--color-grey-3);
+  border-radius: 5%;
+}
+
+.main .ltCon .allCon .homeItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main .ltCon .allCon .homeItem:hover {
+  background-color: var(--color-grey-2);
 }
 
 .main .ltCon .allCon h2 {
