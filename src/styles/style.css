@@ -302,6 +302,7 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  gap: 1rem;
 }
 
 .main .ltCon .allCon .home .homeItem {

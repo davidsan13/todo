@@ -6,11 +6,11 @@ import today from './today';
 import priority from './priority';
 
 // move to dom.js
-function renderRtContainer(key, value) {
+function renderRtContainer() {
   const rtContent = document.querySelector('.rtContent');
   rtContent.classList.remove('priority', 'today')
   rtContent.textContent = ' ';
-  rightContainer(key, value);
+  
 }
 
 function listeners() {
@@ -58,11 +58,14 @@ function deleteListener() {
 
 function projectListener() {
   const btns = document.querySelectorAll('.project');
+  const project = {}
   btns.forEach((btn) => {
     btn.addEventListener('click', () => {
       const { key } = btn.dataset;
       const value = getProjectValue(key).tasksList;
-      renderRtContainer(key, value);
+      project[key]= value;
+      renderRtContainer();
+      rightContainer(project);
     });
   });
 }

@@ -27,7 +27,5 @@ export default function priority() {
       project[key] = tasks;
     }
   });
-  Object.keys(project).forEach((key) => {
-    rightContainer(key, project[key]);
-  });
+  rightContainer(project);
 }

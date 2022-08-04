@@ -96,56 +96,64 @@ function renderLayout() {
   return main;
 }
 
-function rightContainer(key, values) {
+function rightContainer(object) {
   const rtContent = document.querySelector('.rtContent');
-  const project = document.createElement('h1');
   const btn = document.createElement('button');
   btn.classList.add('addBtn');
   btn.textContent = '+ Add Task';
-  project.classList.add('rtProjectTitle');
-  project.textContent = key;
-  rtContent.appendChild(project);
+  
+  console.log(object)
   let index = 0;
-  values.forEach((value) => {
-    const taskContent = document.createElement('div');
-    const projectTitle = document.createElement('h1');
-    const date = document.createElement('h1');
-    const priority = document.createElement('h1');
-    const checkbox = document.createElement('input');
-    const icon = document.createElement('div');
-    const remove = document.createElement('i');
-
-    taskContent.classList.add('taskItem');
-    taskContent.dataset.index = index;
-    taskContent.dataset.project = key;
-    projectTitle.classList.add(value.title.replace(/ /g, ''));
-    date.classList.add('date');
-    priority.classList.add('priority');
-    checkbox.classList.add('checkbox');
-    icon.classList.add('icon');
-    remove.classList.add('fa-solid', 'fa-trash');
-
-    checkbox.setAttribute('id', index);
-    checkbox.setAttribute('type', 'checkbox');
-    checkbox.checked = value.done;
-    taskContent.setAttribute('for', index);
-
-    projectTitle.textContent = value.title;
-    icon.appendChild(remove);
-    taskContent.appendChild(checkbox);
-    taskContent.appendChild(projectTitle);
-    taskContent.appendChild(icon);
-    rtContent.appendChild(taskContent);
-    index++;
+  Object.keys(object).forEach((key) => {
+    
+    const project = document.createElement('h1');
+    project.classList.add('rtProjectTitle');
+    project.textContent = key;
+    rtContent.appendChild(project);
+    object[key].forEach((value) => {
+      const taskContent = document.createElement('div');
+      const projectTitle = document.createElement('h1');
+      const date = document.createElement('h1');
+      const priority = document.createElement('h1');
+      const checkbox = document.createElement('input');
+      const icon = document.createElement('div');
+      const remove = document.createElement('i');
+  
+      taskContent.classList.add('taskItem');
+      taskContent.dataset.index = index;
+      taskContent.dataset.project = key;
+      projectTitle.classList.add(value.title.replace(/ /g, ''));
+      date.classList.add('date');
+      priority.classList.add('priority');
+      checkbox.classList.add('checkbox');
+      icon.classList.add('icon');
+      remove.classList.add('fa-solid', 'fa-trash');
+  
+      checkbox.setAttribute('id', index);
+      checkbox.setAttribute('type', 'checkbox');
+      checkbox.checked = value.done;
+      taskContent.setAttribute('for', index);
+  
+      projectTitle.textContent = value.title;
+      icon.appendChild(remove);
+      taskContent.appendChild(checkbox);
+      taskContent.appendChild(projectTitle);
+      taskContent.appendChild(icon);
+      rtContent.appendChild(taskContent);
+      index++;
+    });
   });
+  
   rtContent.appendChild(btn);
   return rtContent;
 }
 
 function defaultProject() {
   const key = 'default';
+  const project = {};
   const value = valueGetter(key).tasksList;
-  rightContainer(key, value);
+  project[key] = value;
+  rightContainer(project);
   deleteListener();
 }
 const listener = () => {
