@@ -2,7 +2,6 @@ import { form, formActive } from './form';
 import { getProject, getKey, valueGetter } from './localStorage';
 import { deleteListener } from './listeners';
 import navi from './navi';
-import { faHomeLg } from '@fortawesome/free-solid-svg-icons';
 
 function renderData() {
   const projects = getKey();
@@ -25,6 +24,7 @@ function homeCon() {
   const priority = document.createElement('h2');
   const inboxIcon = document.createElement('i');
   const todayIcon = document.createElement('i');
+  const priorityIcon = document.createElement('i');
   const todayItems = document.createElement('div');
   const inboxItems = document.createElement('div');
   const priorityItems = document.createElement('div');
@@ -34,6 +34,7 @@ function homeCon() {
   priorityItems.classList.add('homeItem');
   todayIcon.classList.add('fa-solid', 'fa-calendar-day');
   inboxIcon.classList.add('fa-solid', 'fa-inbox');
+  priorityIcon.classList.add('fa-solid', 'fa-triangle-exclamation');
 
   home.classList.add('home');
   today.classList.add('urgent');
@@ -49,11 +50,13 @@ function homeCon() {
 
   todayItems.appendChild(todayIcon);
   todayItems.appendChild(today);
+  inboxItems.appendChild(inboxIcon);
+  inboxItems.appendChild(inbox);
+  priorityItems.appendChild(priorityIcon);
+  priorityItems.appendChild(priority);
   home.appendChild(todayItems);
   home.appendChild(inboxItems);
   home.appendChild(priorityItems);
-  
-
   return home;
 }
 
@@ -64,9 +67,9 @@ function renderLayout() {
   const ltCon = document.createElement('div');
   const allCon = document.createElement('div');
   const project = document.createElement('h2');
-  const h1 = document.createElement('h1');
-  const content = document.createElement('div');
   
+  const content = document.createElement('div');
+
   main.classList.add('main');
   content.classList.add('content');
   rtCon.classList.add('rtCon');
@@ -74,12 +77,11 @@ function renderLayout() {
   allCon.classList.add('allCon');
   project.classList.add('projectHead');
   rtContent.classList.add('rtContent');
- 
-  h1.textContent = 'To Do List';
-  project.textContent = 'Projects';
+
   
+  project.textContent = 'Projects';
+
   project.appendChild(renderData());
-  allCon.appendChild(h1);
   allCon.appendChild(homeCon());
   allCon.appendChild(project);
   ltCon.appendChild(allCon);
@@ -99,7 +101,7 @@ function rightContainer(key, values) {
   const project = document.createElement('h1');
   const btn = document.createElement('button');
   btn.classList.add('addBtn');
-  btn.textContent = '+';
+  btn.textContent = '+ Add Task';
   project.classList.add('rtProjectTitle');
   project.textContent = key;
   rtContent.appendChild(project);
@@ -123,8 +125,10 @@ function rightContainer(key, values) {
     icon.classList.add('icon');
     remove.classList.add('fa-solid', 'fa-trash');
 
+    checkbox.setAttribute('id', index);
     checkbox.setAttribute('type', 'checkbox');
     checkbox.checked = value.done;
+    taskContent.setAttribute('for', index);
 
     projectTitle.textContent = value.title;
     icon.appendChild(remove);

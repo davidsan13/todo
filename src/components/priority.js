@@ -19,7 +19,6 @@ function hasTodayTask(key) {
 export default function priority() {
   const rtContent = document.querySelector('.rtContent');
   rtContent.textContent = ' ';
-  const projectTasksNow = [];
   const keys = getKey();
   const project = {};
   keys.forEach((key) => {
