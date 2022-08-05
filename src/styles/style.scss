@@ -263,6 +263,11 @@ html {
   }
 }
 
+.fa-github {
+  color: var(--primary-light);
+  font-size: 22px;
+  transition: transform 0.3s ease-in-out;
+}
 // Form
 
 // form {

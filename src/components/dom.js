@@ -2,6 +2,7 @@ import { form, formActive } from './form';
 import { getProject, getKey, valueGetter } from './localStorage';
 import { deleteListener } from './listeners';
 import navi from './navi';
+import Footer from './footer';
 
 function renderData() {
   const projects = getKey();
@@ -92,6 +93,7 @@ function renderLayout() {
   main.appendChild(navi());
   // main.appendChild(ltCon);
   main.appendChild(content);
+  main.appendChild(Footer());
 
   return main;
 }

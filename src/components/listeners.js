@@ -1,7 +1,7 @@
 import { rightContainer } from './dom';
 import { formHidden } from './form';
 import { postData, getKey, getValue, getProjectValue, removeTask } from './localStorage';
-import { createTask} from './task';
+import { CreateTask} from './task';
 import today from './today';
 import priority from './priority';
 
@@ -19,7 +19,7 @@ function listeners() {
   projectListener(); //Need to add to index.js and delete after
   addBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    const task = createTask();
+    const task = CreateTask();
     postData(task);
     formHidden();
     const key = task.project;

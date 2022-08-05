@@ -17,7 +17,7 @@ const Project = (task) => {
   return { tasksList, addTask };
 };
 
-function createTask() {
+function CreateTask() {
   const title = document.getElementById('title').value;
   const date = document.getElementById('date').value;
   const priority = document.getElementById('pri').value;
@@ -33,4 +33,4 @@ function createTask() {
   return task1;
 }
 
-export { Task, createTask, Project };
+export { Task, CreateTask, Project };
