@@ -155,7 +155,7 @@ html {
     
     flex-grow: 3;
     min-width: 500px;
-    height: 90vh;
+    height: 88vh;
     display: flex;
     position: relative;
     justify-content: center;
@@ -208,8 +208,6 @@ html {
       }
     }
   }
-
-
   .ltCon {
     min-width: 425px;
     // height: 100%;
@@ -261,13 +259,31 @@ html {
       }
     }
   }
+  .footerContainer {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    width: 100%;
+    height: 55rem;
+    .footerContent {
+      font-size: 1.8rem;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      .fa-github {
+        color: var(--color-white);
+        transition: transform 0.3s ease-in-out;
+        &:hover {
+          transform: rotate(360deg) scale(1.2);
+        }
+      }
+    }
+  }
 }
 
-.fa-github {
-  color: var(--primary-light);
-  font-size: 22px;
-  transition: transform 0.3s ease-in-out;
-}
+  
+
 // Form
 
 // form {

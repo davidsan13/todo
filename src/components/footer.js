@@ -5,6 +5,8 @@ export default function Footer() {
   const link = document.createElement('a');
   const logo = document.createElement('i');
 
+  container.classList.add('footerContainer');
+  content.classList.add('footerContent');
   h2.textContent = 'Copyright © 2022 David San';
   link.setAttribute('href', 'github.com/davidsan13');
   logo.classList.add('fab', 'fa-github');

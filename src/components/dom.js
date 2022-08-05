@@ -151,10 +151,12 @@ function rightContainer(object) {
 }
 
 function defaultProject() {
-  const key = 'default';
+  const keys = getKey();
   const project = {};
-  const value = valueGetter(key).tasksList;
-  project[key] = value;
+  keys.forEach((key) => {
+    const tasks = valueGetter(key).tasksList;
+    project[key] = tasks;
+  })
   rightContainer(project);
   deleteListener();
 }
