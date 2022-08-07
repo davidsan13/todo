@@ -2,26 +2,27 @@
 // Filter tasks that has a do date equal to today
 import {rightContainer } from './dom'
 import { getKey, valueGetter } from './localStorage';
+import { compareAsc, format } from 'date-fns';
+import { deleteListener, listeners } from './listeners';
 
 function hasTodayTask(key) {
-  const today = new Date();
-  const date = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+  const today = format(new Date(), 'yyyy-MM-dd');
+  
   const values = valueGetter(key).tasksList;
   const tasks = [];
   if (values != null) {
     values.forEach((value) => {
-      if (value.date === date) {
+      if (value.date === today) {
         tasks.push(value);
       }
     });
   }
-
   return tasks;
 }
-export default function today() {
+export default function Today() {
   const rtContent = document.querySelector('.rtContent');
   rtContent.textContent = ' ';
-  const projectTasksNow = [];
+  rtContent.classList.add('today');
   const keys = getKey();
   const project = {};
   keys.forEach((key) => {
@@ -30,7 +31,7 @@ export default function today() {
       project[key] = tasks;
     }
   });
-  Object.keys(project).forEach((key) => {
-    rightContainer(key, project[key]);
-  });
-}
+  rightContainer(project);
+  deleteListener();
+  listeners();
+};

@@ -6,6 +6,7 @@ module.exports = {
   entry: {
     index: './src/index.js',
     form: './src/components/form.js',
+    listeners: './src/components/listeners.js',
   },
   devtool: 'inline-source-map',
   devServer: {

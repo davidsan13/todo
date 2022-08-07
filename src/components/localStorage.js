@@ -1,7 +1,8 @@
 import { Project } from './task';
 function postData(task) {
-  const project = localStorage.getItem(task.project);
   const projectKey = task.project;
+  const project = localStorage.getItem(projectKey);
+  
 
   if (project) {
     const items = JSON.parse(localStorage.getItem(projectKey));

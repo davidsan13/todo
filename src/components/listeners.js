@@ -1,37 +1,32 @@
-import { rightContainer } from './dom';
-import { formHidden } from './form';
-import { postData, getKey, getValue, getProjectValue, removeTask } from './localStorage';
-import { CreateTask} from './task';
-import today from './today';
+import { ClearRtContainer, rightContainer } from './dom';
+import { formHidden, formActive } from './form';
+import { postData, getKey, getValue, getProjectValue, removeTask, valueGetter } from './localStorage';
+import { CreateTask } from './task';
+import Today from './today';
 import priority from './priority';
+import Inbox from './inbox';
 
 // move to dom.js
-function renderRtContainer() {
-  const rtContent = document.querySelector('.rtContent');
-  rtContent.classList.remove('priority', 'today')
-  rtContent.textContent = ' ';
-  
-}
 
 function listeners() {
   const addBtn = document.getElementById('addForm');
   const cancelBtn = document.getElementById('cancel');
-  projectListener(); //Need to add to index.js and delete after
+  // projectListener(); // Need to add to index.js and delete after
   addBtn.addEventListener('click', (e) => {
     e.preventDefault();
     const task = CreateTask();
     postData(task);
     formHidden();
     const key = task.project;
-    const values = getProjectValue(key).tasksList;
-    renderRtContainer(key, values);
+    const values = valueGetter(key).tasksList;
+    const project = {};
+    project[key] = values;
+    ClearRtContainer();
+    rightContainer(project);
     // setTimeout(() => {
     //   window.location.reload();
     // }, 10);
   });
-
-  // todayListener();
-  urgentListener();
   cancelBtn.addEventListener('click', () => formHidden());
 }
 
@@ -40,72 +35,83 @@ function deleteListener() {
   btns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
       const target = e.target.closest('div[class=taskItem]');
-      const {index} = target.dataset;
+      const { index } = target.dataset;
       const key = target.dataset.project;
       const value = removeTask(key, index).tasksList;
       const parentClassName = target.parentNode.className;
+      ClearRtContainer();
       if (parentClassName.includes('priority')) {
         priority();
       } else if (parentClassName.includes('today')) {
-        today();
-      } else {
-        renderRtContainer(key, value);
+        Today();
+      } else if (parentClassName.includes('inbox')) {
+        Inbox();
       }
-      deleteListener();
     });
   });
 }
 
 function projectListener() {
   const btns = document.querySelectorAll('.project');
-  const project = {}
   btns.forEach((btn) => {
     btn.addEventListener('click', () => {
+      const project = {};
       const { key } = btn.dataset;
       const value = getProjectValue(key).tasksList;
-      project[key]= value;
-      renderRtContainer();
+      project[key] = value;
+      ClearRtContainer();
       rightContainer(project);
+      deleteListener();
+      // formActiveListener();
     });
   });
 }
-// Might delete include in urgentListener
-// function todayListener() {
-//   const btn = document.querySelector('.today');
-//   btn.addEventListener('click', () => {
-//     const rtContent = document.querySelector('.rtContent');
-//     rtContent.textContent = ' ';
-//     today();
-//     deleteListener();
-//   });
-// }
+
+const formActiveListener = () => {
+  const addBtn = document.querySelector('.addBtn');
+  addBtn.addEventListener('click', () => {
+    formActive();
+    // listeners();
+  });
+};
 
 function urgentListener() {
   const btns = document.querySelectorAll('.urgent');
-  
+  const rtContent = document.querySelector('.rtContent');
   btns.forEach((btn) => {
     btn.addEventListener('click', () => {
-      const rtContent = document.querySelector('.rtContent');
-      rtContent.textContent = ' ';
       const active = document.querySelector('.active');
-      if(active != null) {
+      if (active != null) {
         active.classList.remove('active');
       }
       const btnData = btn.dataset.key;
-      btn.classList.add('active')
-      if(btnData === 'priority') {
-        rtContent.classList.add('priority')
-        rtContent.classList.remove('today');
-        priority()
+      btn.classList.add('active');
+      if (btnData === 'priority') {
+        rtContent.classList.remove('today', 'inbox');
+        priority();
+      } else if (btnData === 'today') {
+        rtContent.classList.remove('priority', 'inbox');
+        Today();
       } else {
-        rtContent.classList.add('today')
-        rtContent.classList.remove('priority');
-        today()
+        rtContent.classList.remove('priority', 'priority');
+        Inbox();
       }
       deleteListener();
+      // formActiveListener();
     });
-  }) 
+  });
 }
 
+function list() {
+  deleteListener();
+  // formActiveListener();
+}
 
-export { listeners, deleteListener, renderRtContainer };
+function allListeners() {
+  urgentListener();
+  projectListener();
+  deleteListener();
+  // formActiveListener();
+  listeners();
+}
+export { listeners, deleteListener, formActiveListener, allListeners, list };

@@ -1,6 +1,5 @@
 import { form, formActive } from './form';
 import { getProject, getKey, valueGetter } from './localStorage';
-import { deleteListener } from './listeners';
 import navi from './navi';
 import Footer from './footer';
 
@@ -49,14 +48,14 @@ function homeCon() {
   today.dataset.key = 'today';
   priority.dataset.key = 'priority';
 
-  todayItems.appendChild(todayIcon);
-  todayItems.appendChild(today);
   inboxItems.appendChild(inboxIcon);
   inboxItems.appendChild(inbox);
+  todayItems.appendChild(todayIcon);
+  todayItems.appendChild(today);
   priorityItems.appendChild(priorityIcon);
   priorityItems.appendChild(priority);
-  home.appendChild(todayItems);
   home.appendChild(inboxItems);
+  home.appendChild(todayItems);
   home.appendChild(priorityItems);
   return home;
 }
@@ -68,7 +67,6 @@ function renderLayout() {
   const ltCon = document.createElement('div');
   const allCon = document.createElement('div');
   const project = document.createElement('h2');
-  
   const content = document.createElement('div');
 
   main.classList.add('main');
@@ -79,7 +77,6 @@ function renderLayout() {
   project.classList.add('projectHead');
   rtContent.classList.add('rtContent');
 
-  
   project.textContent = 'Projects';
 
   project.appendChild(renderData());
@@ -103,11 +100,8 @@ function rightContainer(object) {
   const btn = document.createElement('button');
   btn.classList.add('addBtn');
   btn.textContent = '+ Add Task';
-  
-  console.log(object)
   let index = 0;
   Object.keys(object).forEach((key) => {
-    
     const project = document.createElement('h1');
     project.classList.add('rtProjectTitle');
     project.textContent = key;
@@ -120,7 +114,7 @@ function rightContainer(object) {
       const checkbox = document.createElement('input');
       const icon = document.createElement('div');
       const remove = document.createElement('i');
-  
+
       taskContent.classList.add('taskItem');
       taskContent.dataset.index = index;
       taskContent.dataset.project = key;
@@ -130,12 +124,12 @@ function rightContainer(object) {
       checkbox.classList.add('checkbox');
       icon.classList.add('icon');
       remove.classList.add('fa-solid', 'fa-trash');
-  
+
       checkbox.setAttribute('id', index);
       checkbox.setAttribute('type', 'checkbox');
       checkbox.checked = value.done;
       taskContent.setAttribute('for', index);
-  
+
       projectTitle.textContent = value.title;
       icon.appendChild(remove);
       taskContent.appendChild(checkbox);
@@ -145,24 +139,16 @@ function rightContainer(object) {
       index++;
     });
   });
-  
+
   rtContent.appendChild(btn);
   return rtContent;
 }
 
-function defaultProject() {
-  const keys = getKey();
-  const project = {};
-  keys.forEach((key) => {
-    const tasks = valueGetter(key).tasksList;
-    project[key] = tasks;
-  })
-  rightContainer(project);
-  deleteListener();
+function ClearRtContainer() {
+  const rtContent = document.querySelector('.rtContent');
+  rtContent.classList.remove('priority', 'today', 'inbox');
+  rtContent.textContent = ' ';
+  return rtContent;
 }
-const listener = () => {
-  const addBtn = document.querySelector('.addBtn');
-  addBtn.addEventListener('click', () => formActive());
-};
 
-export { renderLayout, listener, rightContainer, defaultProject };
+export { renderLayout, ClearRtContainer, rightContainer };
