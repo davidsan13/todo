@@ -2,8 +2,10 @@ import { form, formActive } from './form';
 import { getProject, getKey, valueGetter } from './localStorage';
 import navi from './navi';
 import Footer from './footer';
+import Inbox from './inbox';
+import { formActiveListener, deleteListener } from './listeners';
 
-function renderData() {
+function renderProjectData() {
   const projects = getKey();
   const container = document.createElement('div');
   container.classList.add('projectContent');
@@ -79,10 +81,11 @@ function renderLayout() {
 
   project.textContent = 'Projects';
 
-  project.appendChild(renderData());
+  project.appendChild(renderProjectData());
   allCon.appendChild(homeCon());
   allCon.appendChild(project);
   ltCon.appendChild(allCon);
+  // rtContent.appendChild(Inbox());
   rtCon.appendChild(rtContent);
   content.appendChild(ltCon);
   content.appendChild(rtCon);
@@ -141,6 +144,8 @@ function rightContainer(object) {
   });
 
   rtContent.appendChild(btn);
+  formActiveListener();
+  deleteListener();
   return rtContent;
 }
 

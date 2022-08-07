@@ -23,6 +23,7 @@ function listeners() {
     project[key] = values;
     ClearRtContainer();
     rightContainer(project);
+
     // setTimeout(() => {
     //   window.location.reload();
     // }, 10);
@@ -37,7 +38,7 @@ function deleteListener() {
       const target = e.target.closest('div[class=taskItem]');
       const { index } = target.dataset;
       const key = target.dataset.project;
-      const value = removeTask(key, index).tasksList;
+      const removeValue = removeTask(key, index).tasksList;
       const parentClassName = target.parentNode.className;
       ClearRtContainer();
       if (parentClassName.includes('priority')) {
@@ -46,6 +47,12 @@ function deleteListener() {
         Today();
       } else if (parentClassName.includes('inbox')) {
         Inbox();
+      } else {
+        const project = {};
+        const value = getProjectValue(key).tasksList;
+        project[key] = value;
+        ClearRtContainer();
+        rightContainer(project);
       }
     });
   });
@@ -61,8 +68,6 @@ function projectListener() {
       project[key] = value;
       ClearRtContainer();
       rightContainer(project);
-      deleteListener();
-      // formActiveListener();
     });
   });
 }
@@ -71,7 +76,6 @@ const formActiveListener = () => {
   const addBtn = document.querySelector('.addBtn');
   addBtn.addEventListener('click', () => {
     formActive();
-    // listeners();
   });
 };
 
@@ -96,22 +100,20 @@ function urgentListener() {
         rtContent.classList.remove('priority', 'priority');
         Inbox();
       }
-      deleteListener();
-      // formActiveListener();
     });
   });
 }
 
 function list() {
   deleteListener();
-  // formActiveListener();
+  formActiveListener();
 }
 
 function allListeners() {
   urgentListener();
   projectListener();
-  deleteListener();
   // formActiveListener();
   listeners();
+  // deleteListener();
 }
 export { listeners, deleteListener, formActiveListener, allListeners, list };

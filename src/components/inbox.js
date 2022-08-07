@@ -1,6 +1,5 @@
 import { getKey, valueGetter } from './localStorage';
 import { rightContainer } from './dom';
-import { deleteListener, list, listeners } from './listeners';
 
 export default function Inbox() {
   const rtContent = document.querySelector('.rtContent');
@@ -13,6 +12,4 @@ export default function Inbox() {
     project[key] = tasks;
   });
   rightContainer(project);
-  listeners();
-  deleteListener();
 }

@@ -3,7 +3,7 @@
 import {rightContainer } from './dom'
 import { getKey, valueGetter } from './localStorage';
 import { compareAsc, format } from 'date-fns';
-import { deleteListener, listeners } from './listeners';
+
 
 function hasTodayTask(key) {
   const today = format(new Date(), 'yyyy-MM-dd');
@@ -32,6 +32,4 @@ export default function Today() {
     }
   });
   rightContainer(project);
-  deleteListener();
-  listeners();
 };

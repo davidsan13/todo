@@ -1,5 +1,4 @@
 import { rightContainer } from './dom';
-import { deleteListener, listeners } from './listeners';
 import { getKey, valueGetter } from './localStorage';
 
 function hasTodayTask(key) {
@@ -29,6 +28,4 @@ export default function priority() {
     }
   });
   rightContainer(project);
-  deleteListener();
-  listeners();
-};
+}
