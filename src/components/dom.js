@@ -2,7 +2,6 @@ import { form, formActive } from './form';
 import { getProject, getKey, valueGetter } from './localStorage';
 import navi from './navi';
 import Footer from './footer';
-import Inbox from './inbox';
 import { formActiveListener, deleteListener } from './listeners';
 
 function renderProjectData() {
@@ -128,7 +127,6 @@ function rightContainer(object) {
       icon.classList.add('icon');
       remove.classList.add('fa-solid', 'fa-trash');
 
-      checkbox.setAttribute('id', index);
       checkbox.setAttribute('type', 'checkbox');
       checkbox.checked = value.done;
       taskContent.setAttribute('for', index);
@@ -142,7 +140,7 @@ function rightContainer(object) {
       index++;
     });
   });
-
+  
   rtContent.appendChild(btn);
   formActiveListener();
   deleteListener();

@@ -1,8 +1,8 @@
 import { Project } from './task';
+
 function postData(task) {
   const projectKey = task.project;
   const project = localStorage.getItem(projectKey);
-  
 
   if (project) {
     const items = JSON.parse(localStorage.getItem(projectKey));
@@ -60,4 +60,12 @@ function removeTask(key, index) {
   return tasks;
 }
 
-export { postData, getKey, getValue, getProject, getProjectValue, removeTask, valueGetter };
+function updateDone(key, index, check) {
+  const object = getProjectValue(key);
+  const values = object.tasksList;
+  values[index].done = check;
+  console.log(object, values);
+  update(key, object);
+}
+
+export { postData, updateDone, getKey, getValue, getProject, getProjectValue, removeTask, valueGetter };

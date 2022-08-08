@@ -1,6 +1,6 @@
 import { ClearRtContainer, rightContainer } from './dom';
 import { formHidden, formActive } from './form';
-import { postData, getKey, getValue, getProjectValue, removeTask, valueGetter } from './localStorage';
+import { postData, getKey, updateDone, getProjectValue, removeTask, valueGetter } from './localStorage';
 import { CreateTask } from './task';
 import Today from './today';
 import priority from './priority';
@@ -31,6 +31,19 @@ function listeners() {
   cancelBtn.addEventListener('click', () => formHidden());
 }
 
+function doneListener() {
+  const checkboxes = document.querySelectorAll('.checkbox');
+  checkboxes.forEach((box) => {
+    box.addEventListener('click', (e) => {
+      const parentNode = e.target.parentNode;
+      const {index} = parentNode.dataset;
+      const {project} = parentNode.dataset;
+      const checked = e.target.checked
+      updateDone(project, index, checked);
+    })
+  });
+}
+
 function deleteListener() {
   const btns = document.querySelectorAll('.icon');
   btns.forEach((btn) => {
@@ -38,7 +51,7 @@ function deleteListener() {
       const target = e.target.closest('div[class=taskItem]');
       const { index } = target.dataset;
       const key = target.dataset.project;
-      const removeValue = removeTask(key, index).tasksList;
+      removeTask(key, index).tasksList;
       const parentClassName = target.parentNode.className;
       ClearRtContainer();
       if (parentClassName.includes('priority')) {
@@ -79,7 +92,7 @@ const formActiveListener = () => {
   });
 };
 
-function urgentListener() {
+function homeListener() {
   const btns = document.querySelectorAll('.urgent');
   const rtContent = document.querySelector('.rtContent');
   btns.forEach((btn) => {
@@ -110,10 +123,10 @@ function list() {
 }
 
 function allListeners() {
-  urgentListener();
+  homeListener();
   projectListener();
-  // formActiveListener();
+  formActiveListener();
   listeners();
-  // deleteListener();
+  doneListener();
 }
 export { listeners, deleteListener, formActiveListener, allListeners, list };
