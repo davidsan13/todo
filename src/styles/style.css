@@ -222,6 +222,12 @@ html {
 }
 
 .main .rtCon .rtContent > h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.main .rtCon .rtContent .rtProjectTitle {
   font-size: 3rem;
   font-weight: bold;
 }
@@ -285,7 +291,8 @@ html {
   -ms-flex-line-pack: center;
       align-content: center;
   gap: 3rem;
-  padding: 2rem;
+  padding: 3rem;
+  padding-left: 5rem;
   font-size: 3rem;
 }
 
@@ -314,12 +321,11 @@ html {
 }
 
 .main .ltCon .allCon .home .homeItem:hover {
-  background-color: var(--color-grey-2);
+  background-color: var(--color-grey-5);
 }
 
 .main .ltCon .allCon .home .homeItem svg {
   font-size: 2.8rem;
-  opacity: 75%;
 }
 
 .main .ltCon .allCon h2 {

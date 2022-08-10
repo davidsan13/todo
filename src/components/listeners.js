@@ -51,7 +51,7 @@ function deleteListener() {
       const target = e.target.closest('div[class=taskItem]');
       const { index } = target.dataset;
       const key = target.dataset.project;
-      removeTask(key, index).tasksList;
+      removeTask(key, index);
       const parentClassName = target.parentNode.className;
       ClearRtContainer();
       if (parentClassName.includes('priority')) {
