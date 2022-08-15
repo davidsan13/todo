@@ -103,6 +103,13 @@ function rightContainer(object) {
   btn.classList.add('addBtn');
   btn.textContent = '+ Add Task';
   let index = 0;
+  if (Object.keys(object).length === 0) {
+    const h1 = document.createElement('h1');
+    h1.textContent = 'You Do Not Have Any Tasks. Add A Task.';
+    rtContent.appendChild(h1);
+    rtContent.appendChild(btn);
+    return rtContent;
+  }
   Object.keys(object).forEach((key) => {
     const project = document.createElement('h1');
     project.classList.add('rtProjectTitle');
@@ -140,7 +147,6 @@ function rightContainer(object) {
       index++;
     });
   });
-  
   rtContent.appendChild(btn);
   formActiveListener();
   deleteListener();

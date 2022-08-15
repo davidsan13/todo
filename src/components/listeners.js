@@ -75,10 +75,17 @@ function projectListener() {
   const btns = document.querySelectorAll('.project');
   btns.forEach((btn) => {
     btn.addEventListener('click', () => {
+      const active = document.querySelector('.active');
+      if (active != null) {
+        active.classList.remove('active');
+      }
+      btn.classList.add('active');
       const project = {};
       const { key } = btn.dataset;
       const value = getProjectValue(key).tasksList;
-      project[key] = value;
+      if(value != null && value.length > 0) {
+        project[key] = value;
+      }
       ClearRtContainer();
       rightContainer(project);
     });
@@ -95,6 +102,7 @@ const formActiveListener = () => {
 function homeListener() {
   const btns = document.querySelectorAll('.urgent');
   const rtContent = document.querySelector('.rtContent');
+
   btns.forEach((btn) => {
     btn.addEventListener('click', () => {
       const active = document.querySelector('.active');
@@ -102,7 +110,7 @@ function homeListener() {
         active.classList.remove('active');
       }
       const btnData = btn.dataset.key;
-      btn.classList.add('active');
+      btn.parentNode.classList.add('active');
       if (btnData === 'priority') {
         rtContent.classList.remove('today', 'inbox');
         priority();
@@ -110,7 +118,7 @@ function homeListener() {
         rtContent.classList.remove('priority', 'inbox');
         Today();
       } else {
-        rtContent.classList.remove('priority', 'priority');
+        rtContent.classList.remove('priority', 'today');
         Inbox();
       }
     });

@@ -230,10 +230,7 @@ html {
       padding: 3rem;
       padding-left: 5rem;
       font-size: 3rem;
-      .urgent.active{
-        background: var(--color-grey-3);
-        border-radius: 5%;
-      }
+      
       .home{
         display: flex;
         flex-direction: column;
@@ -242,6 +239,10 @@ html {
           display: flex;
           color: var(--color-white);
           gap: 1rem;
+          &.active{
+            border-bottom: 3px solid var(--color-grey-3);
+            border-radius: 5%;
+          }
           &:hover {
             background-color: var(--color-grey-5);
           }
@@ -258,9 +259,14 @@ html {
       .projectContent {
         font-weight: lighter;
         margin-left: .7rem;
-        .project:hover {
-          background-color: var(--color-grey-2)
-         
+        .project{
+          &:hover {
+            background-color: var(--color-grey-2)
+          }
+          &.active{
+            border-bottom: 3px solid var(--color-grey-3);
+            border-radius: 5%;
+          }
         }
       }
     }

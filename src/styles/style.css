@@ -296,11 +296,6 @@ html {
   font-size: 3rem;
 }
 
-.main .ltCon .allCon .urgent.active {
-  background: var(--color-grey-3);
-  border-radius: 5%;
-}
-
 .main .ltCon .allCon .home {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -318,6 +313,11 @@ html {
   display: flex;
   color: var(--color-white);
   gap: 1rem;
+}
+
+.main .ltCon .allCon .home .homeItem.active {
+  border-bottom: 3px solid var(--color-grey-3);
+  border-radius: 5%;
 }
 
 .main .ltCon .allCon .home .homeItem:hover {
@@ -340,6 +340,11 @@ html {
 
 .main .ltCon .allCon .projectContent .project:hover {
   background-color: var(--color-grey-2);
+}
+
+.main .ltCon .allCon .projectContent .project.active {
+  border-bottom: 3px solid var(--color-grey-3);
+  border-radius: 5%;
 }
 
 .main .footerContainer {
