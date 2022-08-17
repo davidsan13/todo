@@ -88,90 +88,6 @@ html {
           flex-direction: column;
 }
 
-.main .formCon {
-  display: none;
-}
-
-.main .formCon.active {
-  -webkit-box-shadow: var(--box-shadow-1);
-          box-shadow: var(--box-shadow-1);
-  z-index: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 2rem;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: absolute;
-  left: 30%;
-  bottom: 60%;
-  background-color: white;
-  width: 75rem;
-  height: 10rem;
-}
-
-.main .formCon.active form {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[5];
-      grid-template-columns: repeat(5, 1fr);
-  -ms-grid-rows: (1fr)[2];
-      grid-template-rows: repeat(2, 1fr);
-  font-size: 1.5rem;
-  width: 75%;
-  gap: 1rem;
-}
-
-.main .formCon.active form label {
-  display: none;
-}
-
-.main .formCon.active form input {
-  border: 1px solid #c4c3c3;
-  text-align: center;
-}
-
-.main .formCon.active form #title {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 5;
-  grid-column: 1 / 6;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  grid-row: 1 / 2;
-  width: 100%;
-  -webkit-box-flex: 4;
-      -ms-flex-positive: 4;
-          flex-grow: 4;
-}
-
-.main .formCon.active form #date {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 2;
-  grid-column: 2 / 4;
-}
-
-.main .formCon.active form #desc {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
-  grid-column: 1 / 2;
-}
-
-.main .formCon.active form #pri {
-  -webkit-box-flex: 5;
-      -ms-flex-positive: 5;
-          flex-grow: 5;
-}
-
-.main .formCon.active form #addForm {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 2;
-  grid-column: 2 / 4;
-}
-
 .main .nav {
   height: 9rem;
   width: 100%;
@@ -197,7 +113,7 @@ html {
   -webkit-box-flex: 3;
       -ms-flex-positive: 3;
           flex-grow: 3;
-  min-width: 500px;
+  min-width: 400px;
   height: 88vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -206,6 +122,91 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .rtCon form {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
+  font-size: 1.5rem;
+  width: 75%;
+  gap: 1rem;
+}
+
+.main .rtCon form label {
+  display: none;
+}
+
+.main .rtCon form input {
+  border: 1px solid #c4c3c3;
+  text-align: center;
+}
+
+.main .rtCon form #title {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-column: 1 / 6;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1 / 2;
+  width: 100%;
+  -webkit-box-flex: 4;
+      -ms-flex-positive: 4;
+          flex-grow: 4;
+}
+
+.main .rtCon form #date {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2 / 4;
+}
+
+.main .rtCon form #desc {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+}
+
+.main .rtCon form #pri {
+  -webkit-box-flex: 5;
+      -ms-flex-positive: 5;
+          flex-grow: 5;
+}
+
+.main .rtCon form #addForm {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2 / 4;
+}
+
+.main .rtCon .formCon {
+  visibility: hidden;
+  -webkit-box-shadow: var(--box-shadow-1);
+          box-shadow: var(--box-shadow-1);
+  text-align: center;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  background-color: white;
+}
+
+.main .rtCon .formCon.active {
+  visibility: visible;
 }
 
 .main .rtCon .rtContent {
@@ -219,6 +220,8 @@ html {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 1rem;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
 }
 
 .main .rtCon .rtContent > h1 {
@@ -380,5 +383,96 @@ html {
 .main .footerContainer .footerContent .fa-github:hover {
   -webkit-transform: rotate(360deg) scale(1.2);
           transform: rotate(360deg) scale(1.2);
+}
+
+@media all and (min-width: 931px) {
+  .hamburger {
+    display: none;
+  }
+  .formCon {
+    display: none;
+    width: 75rem;
+    height: 10rem;
+  }
+  .formCon.active {
+    display: inline;
+  }
+}
+
+@media all and (max-width: 930px) {
+  .content {
+    position: relative;
+  }
+  .ltCon {
+    position: absolute;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    z-index: 1;
+    height: 100%;
+  }
+  .ltCon.activeNav {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    width: 100%;
+  }
+  .nav {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    justify-items: center;
+    padding: 1rem;
+    position: relative;
+  }
+  .nav .hamburger {
+    display: inline-block;
+    position: absolute;
+  }
+  .nav .hamburger .fa-x {
+    -webkit-transform: translateX(-150%);
+            transform: translateX(-150%);
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+  .nav .hamburger.activeHam .fa-x {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  .nav .hamburger.activeHam .fa-bars.hamburger {
+    display: none;
+  }
+  .nav h1 {
+    -webkit-box-flex: 2;
+        -ms-flex-positive: 2;
+            flex-grow: 2;
+    text-align: center;
+  }
+  .formCon {
+    position: absolute;
+    height: 100%;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+  .formCon.active {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  form {
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 /*# sourceMappingURL=style.css.map */

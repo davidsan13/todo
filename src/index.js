@@ -10,11 +10,13 @@ import Today from './components/today';
 import { formActive } from './components/form';
 
 
+
 function component() {
   // element.appendChild(form());
   document.body.appendChild(renderLayout());
   Inbox();
   allListeners();
+ 
 }
 component();
 // document.body.appendChild(component());

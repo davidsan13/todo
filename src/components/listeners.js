@@ -1,6 +1,13 @@
 import { ClearRtContainer, rightContainer } from './dom';
 import { formHidden, formActive } from './form';
-import { postData, getKey, updateDone, getProjectValue, removeTask, valueGetter } from './localStorage';
+import {
+  postData,
+  getKey,
+  updateDone,
+  getProjectValue,
+  removeTask,
+  valueGetter,
+} from './localStorage';
 import { CreateTask } from './task';
 import Today from './today';
 import priority from './priority';
@@ -35,12 +42,12 @@ function doneListener() {
   const checkboxes = document.querySelectorAll('.checkbox');
   checkboxes.forEach((box) => {
     box.addEventListener('click', (e) => {
-      const parentNode = e.target.parentNode;
-      const {index} = parentNode.dataset;
-      const {project} = parentNode.dataset;
-      const checked = e.target.checked
+      const { parentNode } = e.target;
+      const { index } = parentNode.dataset;
+      const { project } = parentNode.dataset;
+      const { checked } = e.target;
       updateDone(project, index, checked);
-    })
+    });
   });
 }
 
@@ -76,6 +83,7 @@ function projectListener() {
   btns.forEach((btn) => {
     btn.addEventListener('click', () => {
       const active = document.querySelector('.active');
+      console.log(active);
       if (active != null) {
         active.classList.remove('active');
       }
@@ -83,7 +91,7 @@ function projectListener() {
       const project = {};
       const { key } = btn.dataset;
       const value = getProjectValue(key).tasksList;
-      if(value != null && value.length > 0) {
+      if (value != null && value.length > 0) {
         project[key] = value;
       }
       ClearRtContainer();
@@ -124,6 +132,14 @@ function homeListener() {
     });
   });
 }
+function hamIcon() {
+  const ham = document.querySelector('.hamburger');
+  const ltCon = document.querySelector('.ltCon');
+  ham.addEventListener('click', () => {
+    ltCon.classList.toggle('activeNav');
+    ham.classList.toggle('activeHam');
+  });
+}
 
 function list() {
   deleteListener();
@@ -136,5 +152,6 @@ function allListeners() {
   formActiveListener();
   listeners();
   doneListener();
+  hamIcon();
 }
 export { listeners, deleteListener, formActiveListener, allListeners, list };
