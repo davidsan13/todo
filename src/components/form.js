@@ -15,20 +15,17 @@ function form() {
   const cancel = document.createElement('button');
   const addBtn = document.createElement('input');
 
-  const done = document.createElement('input');
-
   formCon.classList.add('formCon');
 
-  done.setAttribute('type', 'checkbox');
-  done.setAttribute('id', 'done');
-  done.setAttribute('value', 'false');
   titleLl.htmlFor = 'title';
-  titleInp.setAttribute('placeholder', 'Add a task');
+  titleLl.textContent = 'Task'
+  titleInp.setAttribute('placeholder', 'Task');
   titleInp.setAttribute('id', 'title');
   titleInp.setAttribute('type', 'text');
   titleInp.setAttribute('name', 'title');
 
   dateLl.htmlFor = 'date';
+  dateLl.textContent = 'Date';
   dateInp.setAttribute('placeholder', 'Date');
   dateInp.setAttribute('id', 'date');
   dateInp.setAttribute('type', 'date');
@@ -46,6 +43,7 @@ function form() {
   opt3.textContent = 'Low';
 
   proLl.htmlFor = 'pro';
+  proLl.textContent = 'Project';
   proInp.setAttribute('placeholder', 'Project');
   proInp.setAttribute('id', 'pro');
   proInp.setAttribute('type', 'text');
@@ -57,7 +55,7 @@ function form() {
   cancel.setAttribute('type', 'button');
   addBtn.textContent = 'Add Task';
   addBtn.setAttribute('id', 'addForm');
-  addBtn.setAttribute('value', 'add');
+  addBtn.setAttribute('value', 'Add');
   addBtn.setAttribute('type', 'submit');
 
   priSel.appendChild(opt1);
@@ -73,7 +71,6 @@ function form() {
   taskForm.appendChild(proInp);
   taskForm.appendChild(addBtn);
   taskForm.appendChild(cancel);
-  taskForm.appendChild(done);
   formCon.appendChild(taskForm);
   return formCon;
 }
