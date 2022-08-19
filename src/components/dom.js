@@ -86,9 +86,10 @@ function renderLayout() {
   ltCon.appendChild(allCon);
   // rtContent.appendChild(Inbox());
   rtCon.appendChild(rtContent);
-  rtCon.appendChild(form())
+  // rtCon.appendChild(form());
   content.appendChild(ltCon);
   content.appendChild(rtCon);
+  content.appendChild(form());
   // main.appendChild(form());
   main.appendChild(navi());
   // main.appendChild(ltCon);

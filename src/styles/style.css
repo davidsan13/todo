@@ -109,37 +109,19 @@ html {
   width: 100%;
 }
 
-.main .rtCon {
-  -webkit-box-flex: 3;
-      -ms-flex-positive: 3;
-          flex-grow: 3;
-  min-width: 400px;
-  height: 88vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.main .rtCon form {
+.main .content form {
   display: -ms-grid;
   display: grid;
   font-size: 1.5rem;
   width: 75%;
 }
 
-.main .rtCon form input {
+.main .content form input {
   border: 1px solid #c4c3c3;
   text-align: center;
 }
 
-.main .rtCon .formCon {
+.main .content .formCon {
   visibility: hidden;
   text-align: center;
   z-index: 1;
@@ -156,8 +138,26 @@ html {
   position: absolute;
 }
 
-.main .rtCon .formCon.active {
+.main .content .formCon.active {
   visibility: visible;
+}
+
+.main .rtCon {
+  -webkit-box-flex: 3;
+      -ms-flex-positive: 3;
+          flex-grow: 3;
+  min-width: 400px;
+  height: 88vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .main .rtCon .rtContent {
@@ -305,7 +305,6 @@ html {
   background-color: var(--color-primary);
   color: var(--color-white);
   width: 100%;
-  height: 55rem;
 }
 
 .main .footerContainer .footerContent {
@@ -321,6 +320,7 @@ html {
       -ms-flex-align: center;
           align-items: center;
   gap: 1rem;
+  padding: .7rem;
 }
 
 .main .footerContainer .footerContent .fa-github {
@@ -345,8 +345,19 @@ html {
     width: 75rem;
     height: 10rem;
     background-color: white;
+    margin: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    text-align: center;
   }
   .formCon.active {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-backdrop-filter: blur(3px);
+            backdrop-filter: blur(3px);
     display: inline;
   }
   label {
@@ -373,9 +384,9 @@ html {
             flex-grow: 4;
   }
   #date {
-    -ms-grid-column: 2;
+    -ms-grid-column: 1;
     -ms-grid-column-span: 2;
-    grid-column: 2 / 4;
+    grid-column: 1 / 3;
   }
   #desc {
     -ms-grid-column: 1;
@@ -383,14 +394,23 @@ html {
     grid-column: 1 / 2;
   }
   #pri {
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 2;
+    grid-column: 3/5;
     -webkit-box-flex: 5;
         -ms-flex-positive: 5;
             flex-grow: 5;
   }
   #addForm {
-    -ms-grid-column: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-column: 1 / 4;
+  }
+  #cancel {
+    -ms-grid-column: 4;
     -ms-grid-column-span: 2;
-    grid-column: 2 / 4;
+    grid-column: 4 / 6;
+    border: 1px solid grey;
   }
 }
 
@@ -456,6 +476,7 @@ html {
     transition: all .3s ease-in-out;
     width: 100%;
     background-color: var(--color-secondary);
+    z-index: 1;
   }
   .formCon.active {
     -webkit-transform: translateX(0);
@@ -477,6 +498,7 @@ html {
     -ms-grid-rows: (0.5fr)[9];
         grid-template-rows: repeat(9, 0.5fr);
     gap: .2rem;
+    padding-bottom: 30rem;
   }
   form input::-webkit-input-placeholder {
     visibility: hidden;
@@ -541,6 +563,7 @@ html {
     -ms-grid-row-span: 1;
     grid-row: 6/7;
     height: 3rem;
+    text-align: center;
   }
   form label[for='pro'] {
     -ms-grid-column: 1;
@@ -568,6 +591,7 @@ html {
     -ms-grid-column: 1;
     -ms-grid-column-span: 1;
     grid-column: 1/2;
+    border: none;
   }
   form #id {
     -ms-grid-column: 2;

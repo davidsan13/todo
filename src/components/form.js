@@ -18,7 +18,7 @@ function form() {
   formCon.classList.add('formCon');
 
   titleLl.htmlFor = 'title';
-  titleLl.textContent = 'Task'
+  titleLl.textContent = 'Task';
   titleInp.setAttribute('placeholder', 'Task');
   titleInp.setAttribute('id', 'title');
   titleInp.setAttribute('type', 'text');
