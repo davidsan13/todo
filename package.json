@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/davidsan13/todo/issues"
   },
-  "homepage": "https://github.com/davidsan13/todo#readme",
+  "homepage": "https://github.com/davidsan13/todo",
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^6.1.2",
     "css-loader": "^6.7.1",
