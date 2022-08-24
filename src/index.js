@@ -8,8 +8,8 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import '@fortawesome/fontawesome-free/js/all';
 
 function component() {
+  document.body.appendChild(renderLayout());
   Inbox();
   allListeners();
-  return document.body.appendChild(renderLayout());
 }
 component();
