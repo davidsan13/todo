@@ -9,6 +9,5 @@ export default function navi() {
   nav.appendChild(Hamburger());
   nav.appendChild(title);
   
-
   return nav;
 }
