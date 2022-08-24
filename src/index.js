@@ -11,6 +11,5 @@ function component() {
   document.body.appendChild(renderLayout());
   Inbox();
   allListeners();
-
 }
 component();
