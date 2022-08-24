@@ -110,15 +110,131 @@ html {
 }
 
 .main .content form {
+  height: 25%;
+  -ms-flex-line-pack: center;
+      align-content: center;
   display: -ms-grid;
   display: grid;
   font-size: 1.5rem;
   width: 75%;
+  gap: .2rem;
+  padding-bottom: 30rem;
 }
 
 .main .content form input {
   border: 1px solid #c4c3c3;
   text-align: center;
+  height: 3rem;
+}
+
+.main .content form input::-webkit-input-placeholder {
+  visibility: hidden;
+}
+
+.main .content form input:-ms-input-placeholder {
+  visibility: hidden;
+}
+
+.main .content form input::-ms-input-placeholder {
+  visibility: hidden;
+}
+
+.main .content form input::placeholder {
+  visibility: hidden;
+}
+
+.main .content form label {
+  -ms-grid-column-align: start;
+      justify-self: start;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.main .content form label[for='title'] {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+}
+
+.main .content form #title {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / 3;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2 / 3;
+  width: 100%;
+}
+
+.main .content form label[for='date'] {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3/4;
+}
+
+.main .content form #date {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  grid-row: 4/5;
+  width: 100%;
+}
+
+.main .content form #pri {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  -ms-grid-row: 6;
+  -ms-grid-row-span: 1;
+  grid-row: 6/7;
+  height: 3rem;
+  text-align: center;
+}
+
+.main .content form label[for='pro'] {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  -ms-grid-row: 7;
+  -ms-grid-row-span: 1;
+  grid-row: 7/8;
+}
+
+.main .content form #pro {
+  width: 100%;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  -ms-grid-row: 8;
+  -ms-grid-row-span: 1;
+  grid-row: 8/9;
+}
+
+.main .content form label[for='pri'] {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+}
+
+.main .content form #addForm {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  border: none;
+}
+
+.main .content form #id {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
 }
 
 .main .content .formCon {
@@ -360,58 +476,6 @@ html {
             backdrop-filter: blur(3px);
     display: inline;
   }
-  label {
-    display: none;
-  }
-  form {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (1fr)[5];
-        grid-template-columns: repeat(5, 1fr);
-    -ms-grid-rows: (1fr)[2];
-        grid-template-rows: repeat(2, 1fr);
-  }
-  #title {
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 5;
-    grid-column: 1 / 6;
-    -ms-grid-row: 1;
-    -ms-grid-row-span: 1;
-    grid-row: 1 / 2;
-    width: 100%;
-    -webkit-box-flex: 4;
-        -ms-flex-positive: 4;
-            flex-grow: 4;
-  }
-  #date {
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 2;
-    grid-column: 1 / 3;
-  }
-  #desc {
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-    grid-column: 1 / 2;
-  }
-  #pri {
-    -ms-grid-column: 3;
-    -ms-grid-column-span: 2;
-    grid-column: 3/5;
-    -webkit-box-flex: 5;
-        -ms-flex-positive: 5;
-            flex-grow: 5;
-  }
-  #addForm {
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 3;
-    grid-column: 1 / 4;
-  }
-  #cancel {
-    -ms-grid-column: 4;
-    -ms-grid-column-span: 2;
-    grid-column: 4 / 6;
-    border: 1px solid grey;
-  }
 }
 
 @media all and (max-width: 930px) {
@@ -481,122 +545,6 @@ html {
   .formCon.active {
     -webkit-transform: translateX(0);
             transform: translateX(0);
-  }
-  form {
-    height: 25%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -ms-flex-line-pack: center;
-        align-content: center;
-    -ms-grid-columns: (0.5fr)[2];
-        grid-template-columns: repeat(2, 0.5fr);
-    -ms-grid-rows: (0.5fr)[9];
-        grid-template-rows: repeat(9, 0.5fr);
-    gap: .2rem;
-    padding-bottom: 30rem;
-  }
-  form input::-webkit-input-placeholder {
-    visibility: hidden;
-  }
-  form input:-ms-input-placeholder {
-    visibility: hidden;
-  }
-  form input::-ms-input-placeholder {
-    visibility: hidden;
-  }
-  form input::placeholder {
-    visibility: hidden;
-  }
-  form input {
-    height: 3rem;
-  }
-  form label {
-    -ms-grid-column-align: start;
-        justify-self: start;
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  form label[for='title'] {
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 2;
-    grid-column: 1/3;
-    -ms-grid-row: 1;
-    -ms-grid-row-span: 1;
-    grid-row: 1/2;
-  }
-  form #title {
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 2;
-    grid-column: 1 / 3;
-    -ms-grid-row: 2;
-    -ms-grid-row-span: 1;
-    grid-row: 2 / 3;
-    width: 100%;
-  }
-  form label[for='date'] {
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 2;
-    grid-column: 1/3;
-    -ms-grid-row: 3;
-    -ms-grid-row-span: 1;
-    grid-row: 3/4;
-  }
-  form #date {
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 2;
-    grid-column: 1/3;
-    -ms-grid-row: 4;
-    -ms-grid-row-span: 1;
-    grid-row: 4/5;
-    width: 100%;
-  }
-  form #pri {
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 2;
-    grid-column: 1/3;
-    -ms-grid-row: 6;
-    -ms-grid-row-span: 1;
-    grid-row: 6/7;
-    height: 3rem;
-    text-align: center;
-  }
-  form label[for='pro'] {
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 2;
-    grid-column: 1/3;
-    -ms-grid-row: 7;
-    -ms-grid-row-span: 1;
-    grid-row: 7/8;
-  }
-  form #pro {
-    width: 100%;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 2;
-    grid-column: 1/3;
-    -ms-grid-row: 8;
-    -ms-grid-row-span: 1;
-    grid-row: 8/9;
-  }
-  form label[for='pri'] {
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 2;
-    grid-column: 1/3;
-  }
-  form #addForm {
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-    grid-column: 1/2;
-    border: none;
-  }
-  form #id {
-    -ms-grid-column: 2;
-    -ms-grid-column-span: 1;
-    grid-column: 2/3;
   }
 }
 /*# sourceMappingURL=style.css.map */
