@@ -1,4 +1,4 @@
-import './styles/style.css';
+import './assets/css/style.css';
 import { renderLayout } from './components/dom';
 import { allListeners } from './components/listeners';
 import Inbox from './components/inbox';
