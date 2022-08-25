@@ -5,16 +5,19 @@ import Footer from './footer';
 import { formActiveListener, deleteListener } from './listeners';
 
 function renderProjectData() {
-  const projects = getKey();
+  // const project = document.querySelector('.projectHead');
+
+  const key = getKey();
   const container = document.createElement('div');
   container.classList.add('projectContent');
-  projects.forEach((item) => {
-    const project = document.createElement('div');
-    project.classList.add('project');
-    project.dataset.key = item;
-    project.textContent = item;
-    container.appendChild(project);
+  key.forEach((item) => {
+    const projCon = document.createElement('div');
+    projCon.classList.add('project');
+    projCon.dataset.key = item;
+    projCon.textContent = item;
+    container.appendChild(projCon);
   });
+
   return container;
 }
 
@@ -31,7 +34,7 @@ function homeCon() {
   const priorityItems = document.createElement('div');
 
   todayItems.classList.add('homeItem');
-  inboxItems.classList.add('homeItem');
+  inboxItems.classList.add('homeItem', 'active');
   priorityItems.classList.add('homeItem');
   todayIcon.classList.add('fa-solid', 'fa-calendar-day');
   inboxIcon.classList.add('fa-solid', 'fa-inbox');
@@ -67,19 +70,16 @@ function renderLayout() {
   const rtContent = document.createElement('div');
   const ltCon = document.createElement('div');
   const allCon = document.createElement('div');
-  const project = document.createElement('h2');
   const content = document.createElement('div');
-
+  const project = document.createElement('h2');
+  project.classList.add('projectHead');
+  project.textContent = 'Projects';
   main.classList.add('main');
   content.classList.add('content');
   rtCon.classList.add('rtCon');
   ltCon.classList.add('ltCon');
   allCon.classList.add('allCon');
-  project.classList.add('projectHead');
   rtContent.classList.add('rtContent');
-
-  project.textContent = 'Projects';
-
   project.appendChild(renderProjectData());
   allCon.appendChild(homeCon());
   allCon.appendChild(project);
@@ -105,7 +105,7 @@ function rightContainer(object) {
   btn.classList.add('addBtn');
   btn.textContent = '+ Add Task';
   let index = 0;
-  if (Object.keys(object).length === 0 ) {
+  if (Object.keys(object).length === 0) {
     const h1 = document.createElement('h1');
     h1.textContent = 'You Do Not Have Any Tasks. Add A Task.';
     rtContent.appendChild(h1);
@@ -164,4 +164,4 @@ function ClearRtContainer() {
   return rtContent;
 }
 
-export { renderLayout, ClearRtContainer, rightContainer };
+export { renderLayout, ClearRtContainer, rightContainer, renderProjectData };

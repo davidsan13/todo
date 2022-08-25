@@ -1,4 +1,4 @@
-import { ClearRtContainer, rightContainer } from './dom';
+import { ClearRtContainer, rightContainer, renderProjectData } from './dom';
 import { formHidden, formActive } from './form';
 import {
   postData,
@@ -12,6 +12,7 @@ import { CreateTask } from './task';
 import Today from './today';
 import priority from './priority';
 import Inbox from './inbox';
+
 
 // move to dom.js
 
@@ -30,7 +31,17 @@ function listeners() {
     project[key] = values;
     ClearRtContainer();
     rightContainer(project);
-
+    const projectHead = document.querySelector('.projectHead');
+    projectHead.textContent = ' ';
+    projectHead.textContent = 'Projects';
+    projectHead.appendChild(renderProjectData());
+    const active = document.querySelector('.active');
+    if (active != null) {
+      active.classList.remove('active');
+    }
+    const item = document.querySelector('[data-key='+key+']');
+    item.classList.add('active');
+    projectListener();
     // setTimeout(() => {
     //   window.location.reload();
     // }, 10);
@@ -83,7 +94,6 @@ function projectListener() {
   btns.forEach((btn) => {
     btn.addEventListener('click', () => {
       const active = document.querySelector('.active');
-      console.log(active);
       if (active != null) {
         active.classList.remove('active');
       }
