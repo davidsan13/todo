@@ -8,9 +8,9 @@ export default function Inbox() {
 
   const keys = getKey();
   const project = {};
-  if (keys.length === 0) {
-    return rightContainer(project);
-  }
+  // if (keys.length === 0) {
+  //   return rightContainer(project);
+  // }
   keys.forEach((key) => {
     const tasks = valueGetter(key).tasksList;
     if (tasks.length > 0) {
