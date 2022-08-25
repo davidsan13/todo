@@ -8,8 +8,9 @@ export default function Inbox() {
 
   const keys = getKey();
   const project = {};
-  if(keys === ' ') {
-    rightContainer(project);
+  console.log(keys)
+  if (keys.length === 0) {
+    return rightContainer(project);
   }
   keys.forEach((key) => {
     const tasks = valueGetter(key).tasksList;
