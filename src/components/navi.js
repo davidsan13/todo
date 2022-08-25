@@ -5,9 +5,7 @@ export default function navi() {
   const title = document.createElement('h1');
   nav.classList.add('nav');
   title.textContent = 'To Do List';
-  
   nav.appendChild(Hamburger());
   nav.appendChild(title);
-  
   return nav;
 }
